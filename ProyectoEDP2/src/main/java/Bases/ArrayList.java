@@ -1,5 +1,6 @@
 package Bases;
 
+import java.io.Serializable;
 import java.util.Iterator;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Iterator;
  *
  * @param <E> el tipo de elementos contenidos en la lista
  */
-public class ArrayList<E> implements List<E> {
+public class ArrayList<E> implements List<E>,Serializable {
 
     private E[] elements = null; // arreglo de elementos genericos
     private int capacity = 100;

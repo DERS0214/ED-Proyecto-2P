@@ -6,8 +6,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import javafx.fxml.FXML;
+import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
 
 public class Archivos {
 
@@ -97,4 +105,24 @@ public class Archivos {
         }
     }
 
+    @FXML
+    private ArrayList<String> cargarArchivoTXT() {
+    FileChooser fileChooser = new FileChooser();
+    fileChooser.setTitle("Seleccionar archivo de texto");
+    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Archivos de texto", "*.txt"));
+    
+    File selectedFile = fileChooser.showOpenDialog(btnCargarArchivo.getScene().getWindow());
+
+    if (selectedFile != null) {
+        try {
+            List<String> lineas = (List<String>) Files.readAllLines(selectedFile.toPath(), StandardCharsets.UTF_8);
+            ArrayList<String> lineasArrayList = new ArrayList(lineas);
+
+            // Aquí puedes trabajar con la lista `lineasArrayList`
+            return lineasArrayList;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    }
 }

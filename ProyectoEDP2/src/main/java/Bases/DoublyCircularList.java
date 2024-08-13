@@ -1,7 +1,10 @@
 package Bases;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 /**
  * Clase que representa una lista doblemente enlazada y que es circular; ideal
@@ -18,7 +21,7 @@ public class DoublyCircularList<E> implements List<E>, Serializable {
      *
      * @return el último nodo de la lista
      */
-    public DoublyCircularNode<E> getLast() {
+    public DoublyCircularNode<E> getLast1() {
         return last;
     }
 
@@ -27,7 +30,7 @@ public class DoublyCircularList<E> implements List<E>, Serializable {
      *
      * @return el nodo cabecera de la lista
      */
-    public DoublyCircularNode<E> getHeader() {
+    public DoublyCircularNode<E> getHeader1() {
         return last.getNext();
     }
 
@@ -55,8 +58,7 @@ public class DoublyCircularList<E> implements List<E>, Serializable {
      * @param e el elemento a agregar
      * @return true si se logró insertar el elemento, false si el objeto es nulo
      */
-    @Override
-    public boolean addLast(E e) {
+    public boolean addLast1(E e) {
         if (e != null) { // No añadimos nulos.
             DoublyCircularNode node = new DoublyCircularNode<>(e);
             if (last == null) { // En caso de que la lista esté vacía, el primer elemento será last y apuntará a
@@ -176,8 +178,7 @@ public class DoublyCircularList<E> implements List<E>, Serializable {
 
     }
 
-    @Override
-    public boolean addFirst(E e) {
+    public boolean addFirst1(E e) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from
                                                                        // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
@@ -255,7 +256,6 @@ public class DoublyCircularList<E> implements List<E>, Serializable {
                                                                        // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
     public List<E> findIntersection(List<E> another) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from
                                                                        // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -304,5 +304,80 @@ public class DoublyCircularList<E> implements List<E>, Serializable {
             }
         }
         return s;
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Object[] toArray() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public <T> T[] toArray(T[] a) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean add(E e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean remove(Object o) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean containsAll(Collection<?> c) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends E> c) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean addAll(int index, Collection<? extends E> c) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> c) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean retainAll(Collection<?> c) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int indexOf(Object o) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int lastIndexOf(Object o) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public ListIterator<E> listIterator() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public ListIterator<E> listIterator(int index) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public List<E> subList(int fromIndex, int toIndex) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

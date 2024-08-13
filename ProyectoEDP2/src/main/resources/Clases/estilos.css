@@ -1,0 +1,211 @@
+.textField{
+    -fx-text-fill: #D6EEFF;
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 2.5 0;
+    -fx-border-color: #C880B7;
+
+}
+
+.buttonMenu:hover{
+    -fx-border-width: 0 0 2.5 0;
+    -fx-border-color: #C880B7;
+    
+}
+
+
+.buttonImg {
+    -fx-background-color:  #C880B7;
+    
+}
+
+.combobox{
+    -fx-background-color:transparent;
+    
+}
+
+.combobox:showing {
+    -fx-border-radius: 10;
+    -fx-background-color: #D6EEFF; /* Cambia el color de fondo de las celdas */
+    -fx-font-size: 12px; /* Cambia el tamaño de la fuente de las celdas */
+}
+
+.btn{
+    -fx-background-color: #C880B7;    
+    -fx-background-radius: 10;
+}
+
+.btn:hover {
+    -fx-background-color: #bf97b6;
+}
+
+/* Cambiar el color del texto en el cuadro de selección desplegable */
+.comboCat .list-cell:selected {
+    -fx-text-fill: #D6EEFF; /* Cambia el color aquí */    
+}
+
+/* Cambiar el color del texto en los elementos seleccionados */
+.comboCat .list-view .list-cell {
+    -fx-text-fill: #D6EEFF; /* Cambia el color aquí */
+    -fx-background-color:  #392B58;
+}
+
+.textFIeldWallet{
+    -fx-text-fill: #708B75;
+    
+}
+
+.btnComparador{
+    -fx-background-color:  #dd6ba7;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "Century Gothic";    
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.btnComparador:hover{
+    -fx-background-color:  #ea8dbe;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "Century Gothic";    
+    -fx-font-size: 12px;
+     -fx-font-weight: bold;
+}
+
+.btnGeneral{
+    -fx-background-color:  #18105c;
+    -fx-opacity: 0.7;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "Century Gothic";    
+    -fx-font-size: 16px;
+}
+
+.btnGeneral:hover{
+    -fx-background-color:  #18105c;
+    -fx-opacity: 0.9;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "Century Gothic";    
+    -fx-font-size: 16px;
+    -fx-cursor: hand;
+    -fx-font-weight: bold; /* Hacer el texto más grueso */    
+}
+
+.btnInit{
+    -fx-background-color:  #D53C3C;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "Century Gothic";    
+    -fx-font-size: 12px;
+        
+}
+
+.btnInit:hover{
+    -fx-background-color:  #E56161;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "Century Gothic";    
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+        
+}
+
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color :derive(#725096,90.0%);
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2.0em;
+}
+
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color :derive(#725096,80.0%);    
+}
+
+.scroll-bar:vertical .track{
+    -fx-background-color :derive(#28152b, 10.0%);
+    -fx-border-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-border-radius :2.0em;
+}
+
+.scroll-bar:vertical .increment-button,
+.scroll-bar:vertical .decrement-button {
+    -fx-background-color: derive(#28152b, 10.0%); /* Color de fondo de los botones */      
+    -fx-background-radius: 0.0em; /* Sin bordes redondeados */
+    -fx-border-color: transparent; /* Elimina el borde del botón */
+    -fx-border-width: 0.0; /* Asegura que no haya ancho de borde */    
+}
+
+ .scroll-bar:vertical .increment-arrow{
+    -fx-background-color :derive(#FFFFFF,70.0%);         
+}
+
+ .scroll-bar:vertical .decrement-arrow{
+    -fx-background-color :derive(#FFFFFF,70.0%);         
+}
+
+.text-area {
+    -fx-control-inner-background: #503D7B;
+    -fx-text-fill: #D6EEFF;
+    -fx-prompt-text-fill: #D6EEFF;
+}
+
+.links {
+    -fx-underline: true;
+    -fx-background-color: transparent;
+}
+
+.links:hover {
+    -fx-underline: false;
+    -fx-cursor: hand;
+}
+
+.textError {
+    -fx-cursor: default;
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+    -fx-visibility: false;
+}
+
+.lbl {
+    -fx-font-family: "Hug Me Tight - TTF";
+    -fx-font-size: 25px;    
+}
+
+.menu-bar{
+    -fx-background-color: #FFFFFF;
+    -fx-font-family: "Century Gothic";    
+}
+
+.menu-bar:active{
+    -fx-background-color: #AF93EB;
+    -fx-text-fill: #FFFFFF;     
+}
+.menu-bar:hover{
+    -fx-background-color: #AF93EB;
+    -fx-text-fill: #FFFFFF;     
+}
+
+.menu-bar:showing{
+    -fx-background-color: #AF93EB;
+    -fx-text-fill: #FFFFFF;     
+}
+
+.menu{
+    -fx-font-family: "Century Gothic";
+}
+
+.menu:showing{
+    -fx-background-color: #AF93EB;
+    -fx-text-fill: #FFFFFF;
+}
+
+.menu-item{
+    -fx-font-family: "Century Gothic";
+}
+
+.menu-item:hover{
+    -fx-background-color: #AF93EB;
+    -fx-text-fill: #FFFFFF;
+}
+
+.menu-item:active{
+    -fx-background-color: #AF93EB;
+    -fx-text-fill: #FFFFFF;
+}
+

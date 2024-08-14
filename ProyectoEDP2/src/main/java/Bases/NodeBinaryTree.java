@@ -1,9 +1,8 @@
-package Bases;
+package tree;
 
 /**
  *
  * @author adi
- * Estudiante: Katherine Forero Villota
  */
 public class NodeBinaryTree<E> {
     private E content;
@@ -43,6 +42,8 @@ public class NodeBinaryTree<E> {
         this.right = right;
     }
     
-    
+    public String toString(){
+        return content.toString();
+    }
     
 }

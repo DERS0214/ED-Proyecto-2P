@@ -45,11 +45,17 @@ public class CargarController {
             try {
                 List<String> lineas = (List<String>) Files.readAllLines(selectedFile.toPath(), StandardCharsets.UTF_8);
                 ArrayList<String> lineasArrayList = new ArrayList(lineas);
+                
+                for(String linea : lineas){
+                    System.out.println(linea);
+                }
 
                 // Aquí puedes trabajar con la lista `lineasArrayList`
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            
+            
         }
     }
     
@@ -65,6 +71,10 @@ public class CargarController {
             try {
                 List<String> lineas = (List<String>) Files.readAllLines(selectedFile.toPath(), StandardCharsets.UTF_8);
                 ArrayList<String> lineasArrayList = new ArrayList(lineas);
+                
+                for(String linea : lineas){
+                    System.out.println(linea);
+                }
 
                 // Aquí puedes trabajar con la lista `lineasArrayList`
             } catch (Exception e) {

@@ -37,7 +37,7 @@
       <Button fx:id="btnPreguntas" layoutX="401.0" layoutY="314.0" onAction="#cargarPreguntas" prefHeight="45.0" prefWidth="198.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="CARGAR PREGUNTAS" />
       <Button fx:id="btnRespuestas" layoutX="400.0" layoutY="371.0" onAction="#cargarRespuestas" prefHeight="45.0" prefWidth="198.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="CARGAR RESPUESTAS" />
       <Button fx:id="btnSalir" layoutX="14.0" layoutY="686.0" onAction="#switchToSecondary" prefHeight="30.0" prefWidth="80.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="SALIR" />
-      <Button fx:id="btnGuardar" layoutX="426.0" layoutY="428.0" onAction="#switchToInicio" prefHeight="45.0" prefWidth="146.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="GUARDAR" />
+      <Button fx:id="btnGuardar" layoutX="426.0" layoutY="428.0" onAction="#switchToSecondary" prefHeight="45.0" prefWidth="146.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="GUARDAR" />
       <TextField fx:id="txtCategoria" layoutX="410.0" layoutY="279.0" prefHeight="24.0" prefWidth="179.0" />
       <Button layoutX="397.0" layoutY="248.0" mnemonicParsing="false" styleClass="textError" stylesheets="@estilos.css" text="Nombre de la categoría:" textFill="WHITE">
          <font>

@@ -25,13 +25,7 @@ public class CargarController {
     @FXML
     private TextField txtCategoria;
 
-    private void switchToPrimary() throws IOException {
-        App.setRoot("primary");
-    }
-
-    @FXML
-    private void switchToSecondary(ActionEvent event) {
-    }
+    
     
         @FXML
     private void cargarPreguntas() {

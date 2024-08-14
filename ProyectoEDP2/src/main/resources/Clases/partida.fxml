@@ -34,9 +34,9 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Button fx:id="btnSi" layoutX="167.0" layoutY="378.0" onAction="#switchToSecondary" prefHeight="45.0" prefWidth="103.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="SÍ" />
-      <Button fx:id="btnNo" layoutX="396.0" layoutY="378.0" onAction="#switchToSecondary" prefHeight="45.0" prefWidth="103.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="NO" />
-      <Button fx:id="btnSalir" layoutX="14.0" layoutY="686.0" onAction="#switchToSecondary" prefHeight="30.0" prefWidth="80.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="SALIR" />
+      <Button fx:id="btnSi" layoutX="167.0" layoutY="378.0" prefHeight="45.0" prefWidth="103.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="SÍ" />
+      <Button fx:id="btnNo" layoutX="396.0" layoutY="378.0" prefHeight="45.0" prefWidth="103.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="NO" />
+      <Button fx:id="btnSalir" layoutX="14.0" layoutY="686.0" prefHeight="30.0" prefWidth="80.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="SALIR" />
       <ImageView fitHeight="244.0" fitWidth="539.0" layoutX="64.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Contenedor.png" />

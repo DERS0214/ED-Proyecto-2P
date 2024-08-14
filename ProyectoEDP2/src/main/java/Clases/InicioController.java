@@ -3,9 +3,11 @@ package Clases;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public class InicioController implements Initializable {
 
@@ -16,13 +18,24 @@ public class InicioController implements Initializable {
     @FXML
     private Button btnSalir;
 
-    @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
-    }
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("PrimaryController initialized");
+    }
+
+    @FXML
+    private void switchToPartida() throws IOException{
+        App.setRoot("partida");
+    }
+
+    @FXML
+    private void switchToCargar() throws IOException{
+        App.setRoot("cargar");
+    }
+
+    @FXML
+    private void cerrar() throws IOException{
+        Stage stage = (Stage) btnSalir.getScene().getWindow();
+        stage.close();
     }
 }

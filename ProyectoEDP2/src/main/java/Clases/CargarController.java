@@ -82,4 +82,9 @@ public class CargarController {
             }
         }
     }
+
+    @FXML
+    private void switchToInicio() throws IOException {
+        App.setRoot("inicio");
+    }
 }

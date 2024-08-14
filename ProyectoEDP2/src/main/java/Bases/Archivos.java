@@ -106,23 +106,42 @@ public class Archivos {
     }
 
     @FXML
-    private ArrayList<String> cargarArchivoTXT() {
-    FileChooser fileChooser = new FileChooser();
-    fileChooser.setTitle("Seleccionar archivo de texto");
-    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Archivos de texto", "*.txt"));
-    
-    File selectedFile = fileChooser.showOpenDialog(btnCargarArchivo.getScene().getWindow());
+    private void cargarPreguntas() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Seleccionar Preguntas");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Archivos de texto", "*.txt"));
 
-    if (selectedFile != null) {
-        try {
-            List<String> lineas = (List<String>) Files.readAllLines(selectedFile.toPath(), StandardCharsets.UTF_8);
-            ArrayList<String> lineasArrayList = new ArrayList(lineas);
+        File selectedFile = fileChooser.showOpenDialog(btnCargarArchivo.getScene().getWindow());
 
-            // Aquí puedes trabajar con la lista `lineasArrayList`
-            return lineasArrayList;
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (selectedFile != null) {
+            try {
+                List<String> lineas = (List<String>) Files.readAllLines(selectedFile.toPath(), StandardCharsets.UTF_8);
+                ArrayList<String> lineasArrayList = new ArrayList(lineas);
+
+                // Aquí puedes trabajar con la lista `lineasArrayList`
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
+    
+    @FXML
+    private void cargarRespuestas() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Seleccionar Respuestas");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Archivos de texto", "*.txt"));
+
+        File selectedFile = fileChooser.showOpenDialog(btnCargarArchivo.getScene().getWindow());
+
+        if (selectedFile != null) {
+            try {
+                List<String> lineas = (List<String>) Files.readAllLines(selectedFile.toPath(), StandardCharsets.UTF_8);
+                ArrayList<String> lineasArrayList = new ArrayList(lineas);
+
+                // Aquí puedes trabajar con la lista `lineasArrayList`
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }else
     }
 }

@@ -30,6 +30,7 @@ public class CargarController {
     private TextField txtCategoria;
     private ArrayList<String> preguntas;
     private ArrayList<String> respuestas;
+    private BinaryTree<String> arbol;
             
 
     
@@ -93,7 +94,7 @@ public class CargarController {
     }
     
     @FXML
-    private void cargarArbol()  {
+    private void cargarArbolPreguntas()  {
         BinaryTree<String> arbol= new BinaryTree<>(new NodeBinaryTree<String>(preguntas.get(0)));
         
         
@@ -118,8 +119,35 @@ public class CargarController {
                 }
             nivel++;
         }
-        arbol.recorrerEnorden();
+        this.arbol=arbol;
+        this.cargarArbolRespuestas();
     }
     
+    @FXML
+    private void cargarArbolRespuestas()  {
+                
+        for(String linea:this.respuestas){
+            String[] espacios = linea.split(" ");
+            String animal = espacios[0];
+            int cantidad=espacios.length;
+            BinaryTree<String> p = arbol;
+            
+            for(int i=1;i<cantidad-1;i++){
+                if(espacios[i].equalsIgnoreCase("SI")){
+                    p=p.getRoot().getLeft();
+                }else{
+                    p=p.getRoot().getRight();
+                }
+            }
+            
+            if(espacios[cantidad-1].equalsIgnoreCase("SI")){
+                    p.getRoot().setLeft(new BinaryTree<String>(new NodeBinaryTree<String>(animal)));
+            }else{
+                    p.getRoot().setRight(new BinaryTree<String>(new NodeBinaryTree<String>(animal)));
+            }
+            
+        }
+        arbol.recorrerEnorden();
+    }
     
 }

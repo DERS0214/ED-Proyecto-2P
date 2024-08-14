@@ -106,7 +106,7 @@ public class Archivos {
     }
 
     @FXML
-    private ArrayList<String> cargarPreguntas() {
+    private void cargarPreguntas() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Seleccionar Preguntas");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Archivos de texto", "*.txt"));
@@ -119,17 +119,14 @@ public class Archivos {
                 ArrayList<String> lineasArrayList = new ArrayList(lineas);
 
                 // Aquí puedes trabajar con la lista `lineasArrayList`
-                return lineasArrayList;
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }else{
-            return null;
         }
     }
     
     @FXML
-    private ArrayList<String> cargarRespuestas() {
+    private void cargarRespuestas() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Seleccionar Respuestas");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Archivos de texto", "*.txt"));
@@ -142,12 +139,9 @@ public class Archivos {
                 ArrayList<String> lineasArrayList = new ArrayList(lineas);
 
                 // Aquí puedes trabajar con la lista `lineasArrayList`
-                return lineasArrayList;
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }else{
-            return null;
-        }
+        }else
     }
 }

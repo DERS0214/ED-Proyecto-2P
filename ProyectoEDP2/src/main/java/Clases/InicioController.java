@@ -10,11 +10,11 @@ import javafx.scene.control.Button;
 public class InicioController implements Initializable {
 
     @FXML
-    private Button primaryButton;
+    private Button btnIniciar;
     @FXML
-    private Button primaryButton1;
+    private Button btnCargar;
     @FXML
-    private Button primaryButton11;
+    private Button btnSalir;
 
     @FXML
     private void switchToSecondary() throws IOException {

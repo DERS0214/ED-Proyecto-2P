@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="730.0" prefWidth="1010.0" style="-fx-background-color: #0f0730;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Clases.CargarController">
@@ -34,23 +34,25 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Button fx:id="btnPreguntas" layoutX="401.0" layoutY="314.0" onAction="#switchToSecondary" prefHeight="45.0" prefWidth="198.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="CARGAR PREGUNTAS" />
-      <Button fx:id="btnRespuestas" layoutX="400.0" layoutY="371.0" onAction="#switchToSecondary" prefHeight="45.0" prefWidth="198.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="CARGAR RESPUESTAS" />
+      <Button fx:id="btnSi" layoutX="167.0" layoutY="378.0" onAction="#switchToSecondary" prefHeight="45.0" prefWidth="103.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="SÍ" />
+      <Button fx:id="btnNo" layoutX="396.0" layoutY="378.0" onAction="#switchToSecondary" prefHeight="45.0" prefWidth="103.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="NO" />
       <Button fx:id="btnSalir" layoutX="14.0" layoutY="686.0" onAction="#switchToSecondary" prefHeight="30.0" prefWidth="80.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="SALIR" />
-      <Button fx:id="btnGuardar" layoutX="426.0" layoutY="428.0" onAction="#switchToSecondary" prefHeight="45.0" prefWidth="146.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="GUARDAR" />
-      <TextField fx:id="txtCategoria" layoutX="410.0" layoutY="279.0" prefHeight="24.0" prefWidth="179.0" />
-      <Button layoutX="397.0" layoutY="248.0" mnemonicParsing="false" styleClass="textError" stylesheets="@estilos.css" text="Nombre de la categoría:" textFill="WHITE">
-         <font>
-            <Font name="Century Gothic" size="15.0" />
-         </font>
-         <effect>
-            <Glow />
-         </effect>
-      </Button>
-      <ImageView fitHeight="144.0" fitWidth="585.0" layoutX="217.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="244.0" fitWidth="539.0" layoutX="64.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Carga%20tus%20preguntas.png" />
+            <Image url="@Contenedor.png" />
          </image>
       </ImageView>
+      <StackPane layoutX="140.0" layoutY="224.0" prefHeight="100.0" prefWidth="388.0">
+         <children>
+            <Button fx:id="btnPregunta" mnemonicParsing="false" prefHeight="72.0" prefWidth="420.0" styleClass="textError" stylesheets="@estilos.css" text="Nombre de la categoría:" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Button>
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>

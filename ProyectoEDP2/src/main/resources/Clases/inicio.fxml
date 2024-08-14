@@ -36,8 +36,8 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Button fx:id="btnIniciar" layoutX="400.0" layoutY="314.0" onAction="#switchToSecondary" prefHeight="45.0" prefWidth="198.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="INICIAR PARTIDA" />
-      <Button fx:id="btnCargar" layoutX="400.0" layoutY="371.0" onAction="#switchToSecondary" prefHeight="45.0" prefWidth="198.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="CARGAR PREGUNTAS" />
-      <Button fx:id="btnSalir" layoutX="400.0" layoutY="429.0" onAction="#switchToSecondary" prefHeight="45.0" prefWidth="198.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="SALIR" />
+      <Button fx:id="btnIniciar" layoutX="400.0" layoutY="314.0" onAction="#switchToPartida" prefHeight="45.0" prefWidth="198.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="INICIAR PARTIDA" />
+      <Button fx:id="btnCargar" layoutX="400.0" layoutY="371.0" onAction="#switchToCargar" prefHeight="45.0" prefWidth="198.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="CARGAR PREGUNTAS" />
+      <Button fx:id="btnSalir" layoutX="400.0" layoutY="429.0" onAction="#cerrar" prefHeight="45.0" prefWidth="198.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="SALIR" />
    </children>
 </AnchorPane>

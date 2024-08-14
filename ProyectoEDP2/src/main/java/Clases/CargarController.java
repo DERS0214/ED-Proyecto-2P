@@ -1,5 +1,6 @@
 package Clases;
 
+import Bases.Archivos;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -15,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import Bases.BinaryTree;
 import Bases.NodeBinaryTree;
+import Bases.Tema;
 
 public class CargarController {
 
@@ -27,13 +29,9 @@ public class CargarController {
     @FXML
     private Button btnGuardar;
     @FXML
-    private TextField txtCategoria;
+    private TextField txtCategoria;       
     private ArrayList<String> preguntas;
-    private ArrayList<String> respuestas;
-    private BinaryTree<String> arbol;
-            
-
-    
+    private ArrayList<String> respuestas;    
     
         @FXML
     private void cargarPreguntas() {
@@ -47,18 +45,16 @@ public class CargarController {
             try {
                 List<String> lineas = (List<String>) Files.readAllLines(selectedFile.toPath(), StandardCharsets.UTF_8);
                 ArrayList<String> lineasArrayList = new ArrayList(lineas);
-                this.preguntas=lineasArrayList;
                 
                 for(String linea : lineas){
                     System.out.println(linea);
                 }
-
+                
+                this.preguntas = lineasArrayList;
                 // Aquí puedes trabajar con la lista `lineasArrayList`
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            
-            
         }
     }
     
@@ -78,7 +74,8 @@ public class CargarController {
                 for(String linea : lineas){
                     System.out.println(linea);
                 }
-                this.respuestas=lineasArrayList;
+                
+                this.respuestas = lineasArrayList;
                 
 
                 // Aquí puedes trabajar con la lista `lineasArrayList`
@@ -93,61 +90,10 @@ public class CargarController {
         App.setRoot("inicio");
     }
     
-    @FXML
-    private void cargarArbolPreguntas()  {
-        BinaryTree<String> arbol= new BinaryTree<>(new NodeBinaryTree<String>(preguntas.get(0)));
-        
-        
-        Queue<BinaryTree<String>> q = new LinkedList<>();
-        q.add(arbol);
-        
-        int nivel = 0;
-        while(!q.isEmpty()){
-            int size = q.size();
-                for(int i = 0; i<size;i++){
-                    BinaryTree<String> t = q.poll();
-                    System.out.println("nivel:" +nivel);
-                    System.out.println("SIZE: "+preguntas.size());
-                    if(nivel<preguntas.size()-1){
-                        t.getRoot().setLeft(new BinaryTree<String>(new NodeBinaryTree<String>(preguntas.get(nivel+1))));
-                        q.add(t.getRoot().getLeft());
-                        
-                        t.getRoot().setRight(new BinaryTree<String>(new NodeBinaryTree<String>(preguntas.get(nivel+1))));
-                        q.add(t.getRoot().getRight());
-                        
-                    }
-                }
-            nivel++;
-        }
-        this.arbol=arbol;
-        this.cargarArbolRespuestas();
-    }
+
     
-    @FXML
-    private void cargarArbolRespuestas()  {
-                
-        for(String linea:this.respuestas){
-            String[] espacios = linea.split(" ");
-            String animal = espacios[0];
-            int cantidad=espacios.length;
-            BinaryTree<String> p = arbol;
-            
-            for(int i=1;i<cantidad-1;i++){
-                if(espacios[i].equalsIgnoreCase("SI")){
-                    p=p.getRoot().getLeft();
-                }else{
-                    p=p.getRoot().getRight();
-                }
-            }
-            
-            if(espacios[cantidad-1].equalsIgnoreCase("SI")){
-                    p.getRoot().setLeft(new BinaryTree<String>(new NodeBinaryTree<String>(animal)));
-            }else{
-                    p.getRoot().setRight(new BinaryTree<String>(new NodeBinaryTree<String>(animal)));
-            }
-            
-        }
-        arbol.recorrerEnorden();
+    public void guardarTema(){
+        Tema t = new Tema("titulo",preguntas,respuestas);        
+        Archivos.guardarTema("titulo", t);        
     }
-    
 }

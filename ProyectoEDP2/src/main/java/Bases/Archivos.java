@@ -6,104 +6,63 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import javafx.fxml.FXML;
-import javafx.scene.image.Image;
-import javafx.stage.FileChooser;
 
 public class Archivos {
 
-    public static void guardarTemas(Map<String, Tema> usuarios) {
-        File archivo = new File("Temas.txt");
-
-        try {
-            // Crear el archivo si no existe
-            if (!archivo.exists()) {
-                archivo.createNewFile();
-                System.out.println("ARCHIVOS: El archivo \"Temas\" fue creado con exito");
-            }
-
-            // Escribir el mapa de usuarios en el archivo
-            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(archivo))) {
-                out.writeObject(usuarios);
-                System.out.println("ARCHIVOS: Temas guardados con exito");
-            } catch (IOException e) {
-                System.err.println("ARCHIVOS: Error al guardar Mapa Temas " + e.getMessage());
-            }
-        } catch (IOException e) {
-            System.err.println("ARCHIVOS: El archivo \"Temas\" NO fue creado: " + e.getMessage());
+    private static final String direc = "temas/";
+    //guardamos en archivos binarios para que la lectura de los objetos sea más sencilla
+    
+    public static Tema leerTema(String nombre) {
+        File archivo = new File(direc, nombre + ".dat"); 
+        if (!archivo.exists()) {
+            System.err.println("ARCHIVOS: El archivo del tema " + nombre + " no existe.");
+            return null;
+        }
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(archivo))) {
+            Tema tema = (Tema) in.readObject();
+            System.out.println("ARCHIVOS: Tema leído con éxito: " + nombre);
+            return tema;
+        } catch (IOException | ClassNotFoundException e) {
+            System.err.println("ARCHIVOS: Error al leer el archivo de tema " + nombre + ": " + e.getMessage());
+            return null;
         }
     }
 
-    public static Map<String, Tema> leerTemas() {
-        Map<String, Tema> temas = null;
-        File archivo = new File("Temas.dat");
+        public static List<Tema> leerTemasDesdeDirectorio() {
+        List<Tema> temas = new ArrayList<>();
+        File directorio = new File(direc);
+        File[] archivos = directorio.listFiles((dir, name) -> name.endsWith(".dat"));
 
-        try {
-            // Leer el mapa de usuarios del archivo
-            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(archivo))) {
-                temas = (Map<String, Tema>) in.readObject();
-                System.out.println("ARCHIVOS: Mapa Temas leido con exito");
-            } catch (IOException | ClassNotFoundException e) {
-                System.err.println("ARCHIVOS: Error al leer Mapa Temas: " + e.getMessage());
+        if (archivos != null) {
+            for (File archivo : archivos) {
+                try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(archivo))) {
+                    Tema tema = (Tema) in.readObject();
+                    temas.add(tema);
+                    System.out.println("ARCHIVOS: Tema leído con éxito: " + archivo.getName());
+                } catch (IOException | ClassNotFoundException e) {
+                    System.err.println("ARCHIVOS: Error al leer el archivo de tema " + archivo.getName() + ": " + e.getMessage());
+                }
             }
-        } catch (Exception e) {
-            System.err.println("ARCHIVOS: Error al leer Mapa Temas: " + e.getMessage());
+        } else {
+            System.err.println("ARCHIVOS: No se pudo encontrar el directorio de temas.");
         }
 
-        if (temas == null) {
-            temas = new HashMap<>(); // Si no se pudo leer, retornar mapa vacío
-        }
         return temas;
     }
-    
-    public static String leerTema() {
-        String titulo = null;
-        File archivo = new File("Tema.txt");
-
-        try {
-            // Leer el mapa de usuarios del archivo
-            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(archivo))) {
-                titulo = (String) in.readObject();
-                System.out.println("ARCHIVOS: Mapa Temas leido con exito");
-            } catch (IOException | ClassNotFoundException e) {
-                System.err.println("ARCHIVOS: Error al leer Mapa Temas: " + e.getMessage());
-            }
-        } catch (Exception e) {
-            System.err.println("ARCHIVOS: Error al leer Mapa Temas: " + e.getMessage());
+        public static void guardarTema(String nombre, Tema tema) {
+        File directorio = new File(direc);
+        if (!directorio.exists()) {
+            directorio.mkdirs();
         }
-
-        
-        return titulo;
-    }
-    
-    public static void guardarTema(String titulo) {
-        File archivo = new File("Tema.txt");
-
-        try {
-            // Crear el archivo si no existe
-            if (!archivo.exists()) {
-                archivo.createNewFile();
-                System.out.println("ARCHIVOS: El archivo \"Tema\" fue creado con exito");
-            }
-
-            // Escribir el mapa de usuarios en el archivo
-            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(archivo))) {
-                out.writeObject(titulo);
-                System.out.println("ARCHIVOS: Tema guardado con exito");
-            } catch (IOException e) {
-                System.err.println("ARCHIVOS: Error al guardar String Tema " + e.getMessage());
-            }
+        File archivo = new File(directorio, nombre + ".dat");
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(archivo))) {
+            out.writeObject(tema);
+            System.out.println("ARCHIVOS: Tema guardado con éxito: " + nombre);
         } catch (IOException e) {
-            System.err.println("ARCHIVOS: El archivo \"Tema\" NO fue creado: " + e.getMessage());
+            System.err.println("ARCHIVOS: Error al guardar el tema " + nombre + ": " + e.getMessage());
         }
     }
-
 
 }

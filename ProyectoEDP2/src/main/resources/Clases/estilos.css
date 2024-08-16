@@ -55,18 +55,20 @@
 }
 
 .btnComparador{
-    -fx-background-color:  #dd6ba7;
+    -fx-background-color:  #4f40d4;
+    -fx-opacity: 0.7;
     -fx-text-fill: #FFFFFF;
     -fx-font-family: "Century Gothic";    
-    -fx-font-size: 12px;
-    -fx-font-weight: bold;
+    -fx-font-size: 14px;
 }
 
 .btnComparador:hover{
-    -fx-background-color:  #ea8dbe;
+    -fx-background-color:  #4f40d4;
+    -fx-opacity: 0.9;
     -fx-text-fill: #FFFFFF;
     -fx-font-family: "Century Gothic";    
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
      -fx-font-weight: bold;
 }
 

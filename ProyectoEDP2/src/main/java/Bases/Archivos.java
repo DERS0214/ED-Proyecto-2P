@@ -43,11 +43,11 @@ public class Archivos {
                 try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(archivo))) {
                     Tema tema = (Tema) in.readObject();
                     temas.add(tema);
-                    System.out.println("ARCHIVOS: Tema leído con éxito: " + archivo.getName());
                 } catch (IOException | ClassNotFoundException e) {
                     System.err.println("ARCHIVOS: Error al leer el archivo de tema " + archivo.getName() + ": " + e.getMessage());
                 }
             }
+            System.out.println("ARCHIVOS: Todos los temas leidos con exito");
         } else {
             System.err.println("ARCHIVOS: No se pudo encontrar el directorio de temas.");
         }

@@ -17,14 +17,14 @@ public class Tema implements Serializable{
         this.respuestas=r;
     }
     
-        @FXML
-        public BinaryTree<String> cargarArbolPreguntas(ArrayList<String> preguntas)  {
+    @FXML
+    public BinaryTree<String> cargarArbolPreguntas(ArrayList<String> preguntas)  {
         BinaryTree<String> arbol= new BinaryTree<>(new NodeBinaryTree<String>(preguntas.get(0)));
-        
-        
+
+
         Queue<BinaryTree<String>> q = new LinkedList<>();
         q.add(arbol);
-        
+
         int nivel = 0;
         while(!q.isEmpty()){
             int size = q.size();
@@ -35,10 +35,10 @@ public class Tema implements Serializable{
                     if(nivel<preguntas.size()-1){
                         t.getRoot().setLeft(new BinaryTree<String>(new NodeBinaryTree<String>(preguntas.get(nivel+1))));
                         q.add(t.getRoot().getLeft());
-                        
+
                         t.getRoot().setRight(new BinaryTree<String>(new NodeBinaryTree<String>(preguntas.get(nivel+1))));
                         q.add(t.getRoot().getRight());
-                        
+
                     }
                 }
             nivel++;
@@ -73,7 +73,7 @@ public class Tema implements Serializable{
         arbol.recorrerEnorden();
     }
     
-   public BinaryTree<String> crearArbol(){
+   private BinaryTree<String> crearArbol(){
         BinaryTree<String> arbol= this.cargarArbolPreguntas(this.preguntas);
         this.cargarArbolRespuestas(respuestas, arbol);
         return arbol;
@@ -83,4 +83,36 @@ public class Tema implements Serializable{
        return "El tema: "+this.nombre+" tiene "+preguntas.size()+" preguntas y "+respuestas.size()+" respuestas";
        
    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public ArrayList<String> getPreguntas() {
+        return preguntas;
+    }
+
+    public void setPreguntas(ArrayList<String> preguntas) {
+        this.preguntas = preguntas;
+    }
+
+    public ArrayList<String> getRespuestas() {
+        return respuestas;
+    }
+
+    public void setRespuestas(ArrayList<String> respuestas) {
+        this.respuestas = respuestas;
+    }
+   
+    public int cantPreguntas(){
+        return this.preguntas.size();
+    }
+    
+    public int cantRespuestas(){
+        return this.respuestas.size();
+    }
 }

@@ -52,7 +52,7 @@
                   <Glow />
                </effect>
             </Label>
-            <Label layoutX="14.0" layoutY="83.0" text="Animales disponibles: " textFill="WHITE">
+            <Label layoutX="14.0" layoutY="83.0" text="Respuestas disponibles: " textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
@@ -61,6 +61,30 @@
                </effect>
             </Label>
             <Label layoutX="14.0" layoutY="16.0" text="Tema seleccionado:" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <Label fx:id="lblNombre" alignment="CENTER" layoutX="146.0" layoutY="16.0" prefHeight="16.0" prefWidth="118.0" text="----------------" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <Label fx:id="lblPreguntas" alignment="CENTER" layoutX="175.0" layoutY="51.0" prefHeight="16.0" prefWidth="85.0" text="----------------" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <Label fx:id="lblRespuestas" alignment="CENTER" layoutX="175.0" layoutY="84.0" prefHeight="16.0" prefWidth="85.0" text="----------------" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="13.0" />
                </font>

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="730.0" prefWidth="1010.0" style="-fx-background-color: #0f0730;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Clases.CargarController">
+<AnchorPane prefHeight="730.0" prefWidth="1010.0" style="-fx-background-color: #0f0730;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Clases.PartidaController">
    <children>
       <ImageView fitHeight="730.0" fitWidth="1010.0" opacity="0.41" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -36,7 +36,7 @@
       </AnchorPane>
       <Button fx:id="btnSi" layoutX="167.0" layoutY="378.0" prefHeight="45.0" prefWidth="103.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="SÍ" />
       <Button fx:id="btnNo" layoutX="396.0" layoutY="378.0" prefHeight="45.0" prefWidth="103.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="NO" />
-      <Button fx:id="btnSalir" layoutX="14.0" layoutY="686.0" prefHeight="30.0" prefWidth="80.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="SALIR" />
+      <Button fx:id="btnSalir" layoutX="14.0" layoutY="686.0" prefHeight="30.0" prefWidth="117.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="REGRESAR" />
       <ImageView fitHeight="244.0" fitWidth="539.0" layoutX="64.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Contenedor.png" />

@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -39,10 +40,10 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Button fx:id="btnIniciar" layoutX="397.0" layoutY="270.0" onAction="#switchToPartida" prefHeight="45.0" prefWidth="198.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="INICIAR PARTIDA" />
-      <Button fx:id="btnCargar" layoutX="397.0" layoutY="327.0" onAction="#switchToCargar" prefHeight="45.0" prefWidth="198.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="CARGAR TEMA" />
-      <Button fx:id="btnSalir" layoutX="397.0" layoutY="385.0" onAction="#cerrar" prefHeight="45.0" prefWidth="198.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="SALIR" />
-      <AnchorPane layoutX="363.0" layoutY="599.0" opacity="0.85" prefHeight="117.0" prefWidth="272.0" style="-fx-background-color: #18105c;">
+      <Button fx:id="btnIniciar" layoutX="407.0" layoutY="324.0" onAction="#iniciarPartida" prefHeight="45.0" prefWidth="198.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="INICIAR PARTIDA" />
+      <Button fx:id="btnCargar" layoutX="407.0" layoutY="381.0" onAction="#switchToCargar" prefHeight="45.0" prefWidth="198.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="CARGAR TEMA" />
+      <Button fx:id="btnSalir" layoutX="407.0" layoutY="439.0" onAction="#cerrar" prefHeight="45.0" prefWidth="198.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="SALIR" />
+      <AnchorPane layoutX="369.0" layoutY="599.0" opacity="0.85" prefHeight="117.0" prefWidth="272.0" style="-fx-background-color: #18105c;">
          <children>
             <Label layoutX="14.0" layoutY="50.0" text="Preguntas disponibles:" textFill="WHITE">
                <font>
@@ -99,5 +100,14 @@
             <Image url="@info.png" />
          </image>
       </ImageView>
+      <TextField fx:id="txtNumero" layoutX="418.0" layoutY="275.0" prefHeight="24.0" prefWidth="179.0" stylesheets="@estilos.css" />
+      <Button alignment="CENTER" layoutX="408.0" layoutY="244.0" mnemonicParsing="false" styleClass="textError" stylesheets="@estilos.css" text="Cantidad de Preguntas" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="15.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>

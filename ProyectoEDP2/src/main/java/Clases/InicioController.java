@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import Bases.*;
+import javafx.scene.control.TextField;
 
 public class InicioController implements Initializable {
 
@@ -27,6 +28,8 @@ public class InicioController implements Initializable {
     private Label lblPreguntas;
     @FXML
     private Label lblRespuestas;
+    @FXML
+    private TextField txtNumero;
 
     
     @Override
@@ -34,7 +37,6 @@ public class InicioController implements Initializable {
         cargarSeleccionado();
     }
 
-    @FXML
     private void switchToPartida() throws IOException{
         App.setRoot("partida");
     }
@@ -59,6 +61,28 @@ public class InicioController implements Initializable {
             lblNombre.setText(nombre);
             lblPreguntas.setText(preguntas);
             lblRespuestas.setText(respuestas);
+        }
+        
+    }
+    
+    @FXML
+    public void iniciarPartida() throws IOException{
+        Tema t = Archivos.leerSeleccionado();
+        String num = txtNumero.getText();
+        
+        if (t!=null){
+             try {
+                int value = Integer.parseInt(num);
+                if (value > 0 && value <= t.cantPreguntas()) {
+                    switchToPartida();
+                } else {
+                    System.out.println("El valor de preguntas debe ser menor o igual al numero de preguntas del tema");                }
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+            
+        }else{
+            //logica para indicar que no hay un tema cargado
         }
         
     }

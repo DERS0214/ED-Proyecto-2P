@@ -62,6 +62,8 @@
     -fx-font-size: 14px;
 }
 
+
+
 .btnComparador:hover{
     -fx-background-color:  #4f40d4;
     -fx-opacity: 0.9;
@@ -209,5 +211,59 @@
 .menu-item:active{
     -fx-background-color: #AF93EB;
     -fx-text-fill: #FFFFFF;
+}
+
+/* Estilo general del ComboBox */
+.combo-box {
+    -fx-background-color: #1a1a3c; /* Fondo del ComboBox */
+    -fx-text-fill: #ffffff; /* Color del texto */
+    -fx-prompt-text-fill: #a0a0ff; /* Color del texto de sugerencia */
+    -fx-border-color: #ffffff; /* Color del borde */
+    -fx-border-radius: 10px; /* Bordes redondeados */
+    -fx-background-radius: 10px; /* Fondo redondeado */
+    -fx-padding: 0px 0px 0px 5px; 
+}
+
+/* Estilo del menú desplegable (Popup) */
+.combo-box-popup .list-cell {
+    -fx-padding: 0px 0px 0px 5x;
+    -fx-background-color: #1a1a3c; /* Fondo de las celdas */
+    -fx-text-fill: #ffffff; /* Color del texto de las opciones */
+}
+
+/* Sombra para el texto del ComboBox */
+.combo-box .text-input {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 5, 0.5, 0, 0); /* Sombra para el texto */
+}
+
+/* Estilo de la flecha desplegable */
+.combo-box .arrow-button .arrow {
+    -fx-background-color: #ffffff; /* Color de la flecha */
+}
+
+/* Sombra en general para el ComboBox */
+.combo-box {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 0); /* Sombra general */
+}
+
+/* Estilo general del TextField */
+.text-field {
+    -fx-background-color: #1a1a3c; /* Fondo del TextField */
+    -fx-text-fill: #ffffff; /* Color del texto */
+    -fx-prompt-text-fill: #a0a0ff; /* Color del texto de sugerencia */
+    -fx-border-color: #ffffff; /* Color del borde */
+    -fx-border-radius: 10px; /* Bordes redondeados */
+    -fx-background-radius: 10px; /* Fondo redondeado */
+    -fx-padding: 0px 0px 0px 5px; /* Espaciado interno */
+}
+
+/* Sombra para el texto del TextField */
+.text-field {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 5, 0.5, 0, 0); /* Sombra para el texto */
+}
+
+/* Sombra general para el TextField */
+.text-field {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 0); /* Sombra general */
 }
 

@@ -139,8 +139,8 @@ public class CargarController implements Initializable{
         if(nombre!=null){
             this.limpiarCampos();
             Archivos.escribirSeleccionado(nombre);
+            this.switchToInicio();
         }  
-        this.switchToInicio();
     }
     
     private void limpiarCampos(){
@@ -148,11 +148,9 @@ public class CargarController implements Initializable{
         lblPreguntas.setText("----------");
         lblRespuestas.setText("----------");
         cbTema();
-        
-        
     }
     
-        public void cbTema() {
+    public void cbTema() {
         // Crear un nuevo hilo
         Thread hilo = new Thread(() -> {
             try {

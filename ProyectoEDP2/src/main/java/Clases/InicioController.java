@@ -90,15 +90,12 @@ public class InicioController implements Initializable {
     
     private void mostrarPantallaTemporal() throws IOException {
         App.setRoot("pantallaTemporal");
-        // Crear un hilo para esperar 5 segundos y luego cambiar la escena
         new Thread(() -> {
             try {
-                // Esperar 5 segundos
                 Thread.sleep(1000);
-                // Volver al hilo de JavaFX para cambiar la escena
                 javafx.application.Platform.runLater(() -> {
                     try {
-                        App.setRoot("partida"); // Cerrar la pantalla temporal
+                        App.setRoot("partida"); 
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }

@@ -7,6 +7,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import Bases.*;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import javafx.scene.text.TextAlignment;
 
 
 public class PartidaController implements Initializable {
@@ -18,7 +21,7 @@ public class PartidaController implements Initializable {
     private int numActuales;
     private BinaryTree<String> arbol;
     @FXML
-    private Button lblPregunta;
+    private Label lblPregunta;
     @FXML
     private Button btnNo1;
     
@@ -28,11 +31,39 @@ public class PartidaController implements Initializable {
         cargar();
         this.lblPregunta.setText(arbol.getRoot().getContent());
         this.numActuales = 1;
+        lblPregunta.setWrapText(true);
+        lblPregunta.setAlignment(Pos.CENTER);
+        lblPregunta.setTextAlignment(TextAlignment.CENTER);
+
     }    
     
     @FXML
     private void switchToInicio() throws IOException{
         App.setRoot("inicio");
+    }
+    
+    @FXML
+    private void switchToCargar() throws IOException{
+        App.setRoot("cargar");
+    }
+    
+    @FXML
+    private void volverAJugar() throws IOException {
+        App.setRoot("pantallaTemporal");
+        new Thread(() -> {
+            try {
+                Thread.sleep(1000);
+                javafx.application.Platform.runLater(() -> {
+                    try {
+                        App.setRoot("partida"); // Cerrar la pantalla temporal
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                });
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
     
     public void setNumPreguntas(int numPreguntas){
@@ -61,7 +92,7 @@ public class PartidaController implements Initializable {
     public void presionoSi(){
         this.numActuales++;
         System.out.println("PREGUNTA: "+numActuales);
-        if(arbol==null){
+        if(arbol.getRoot().getLeft()==null){
             System.out.println("ARBOL NULO");
             mostrarNoRespuestas();
             return;
@@ -87,7 +118,7 @@ public class PartidaController implements Initializable {
     @FXML
     public void presionoNo(){
         this.numActuales++;
-        if(arbol==null){
+        if(arbol.getRoot().getRight()==null){
             System.out.println("ARBOL NULO");
             mostrarNoRespuestas();
             return;

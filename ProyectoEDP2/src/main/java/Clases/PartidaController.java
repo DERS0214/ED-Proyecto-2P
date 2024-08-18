@@ -8,8 +8,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import Bases.*;
 import java.util.ArrayList;
+import java.util.Random;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.TextAlignment;
 
 
@@ -31,6 +34,9 @@ public class PartidaController implements Initializable {
     private Button btnVolverInicio;
     @FXML
     private Button btnRegresar;
+    @FXML
+    private ImageView ivCharacter;
+    ArrayList<String> rutas = new ArrayList<>();
     
 
     @Override
@@ -41,7 +47,12 @@ public class PartidaController implements Initializable {
         lblPregunta.setWrapText(true);
         lblPregunta.setAlignment(Pos.CENTER);
         lblPregunta.setTextAlignment(TextAlignment.CENTER);
-
+        rutas.add("Character1.png");
+        rutas.add("Character2.png");
+        rutas.add("Character3.png");
+        rutas.add("Character4.png");
+        imgAleatoria();
+        
     }    
     
     @FXML
@@ -98,6 +109,7 @@ public class PartidaController implements Initializable {
     @FXML
     public void presionoSi(){
         this.numActuales++;
+        imgAleatoria();
         System.out.println("PREGUNTA: "+numActuales);
         if(arbol.getRoot().getLeft()==null){
             System.out.println("ARBOL NULO");
@@ -126,6 +138,7 @@ public class PartidaController implements Initializable {
     @FXML
     public void presionoNo(){
         this.numActuales++;
+        this.imgAleatoria();
         if(arbol.getRoot().getRight()==null){
             System.out.println("ARBOL NULO");
             mostrarNoRespuestas();
@@ -166,6 +179,7 @@ public class PartidaController implements Initializable {
             }
             this.cambiarLabel("Se agotaron las preguntas :(, pero los posibles animales son: "+linea);
             this.juegoTerminado();
+            this.cambiarImage("Character2.png");
         }
                 
     }
@@ -173,11 +187,14 @@ public class PartidaController implements Initializable {
     public void mostrarNoRespuestas(){
         this.cambiarLabel("No pudimos encontrar el animal en el que piensas :(");
         juegoTerminado();
+        this.cambiarImage("Character5.png");
     }
     
     public void mostrarRespuesta(){
         this.cambiarLabel("El animal en el que estas pensando es: "+arbol.getRoot().getContent());
         juegoTerminado();
+        this.cambiarImage("Character4.png");
+
     }
     
     public void juegoTerminado(){
@@ -187,5 +204,16 @@ public class PartidaController implements Initializable {
         this.btnSi.setVisible(false);
         this.btnNo.setVisible(false);
         this.btnRegresar.setVisible(false);
+    }
+    
+    public void cambiarImage(String rutaImg){
+        String ruta = "/Clases/"+rutaImg;
+        Image image = new Image(getClass().getResourceAsStream(ruta));
+        ivCharacter.setImage(image);
+    }
+    
+    public void imgAleatoria(){
+        int numeroAleatorio = (int) (Math.random() * 4);
+        this.cambiarImage(rutas.get(numeroAleatorio));
     }
 }

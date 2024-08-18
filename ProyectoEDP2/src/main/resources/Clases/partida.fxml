@@ -51,9 +51,9 @@
             </Label>
          </children>
       </StackPane>
-      <ImageView fitHeight="626.0" fitWidth="433.0" layoutX="563.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ivCharacter" fitHeight="626.0" fitWidth="433.0" layoutX="563.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Character.png" />
+            <Image url="@Character1.png" />
          </image>
       </ImageView>
       <Button fx:id="btnVolverJugar" layoutX="257.0" layoutY="451.0" onAction="#volverAJugar" prefHeight="45.0" prefWidth="154.0" styleClass="buttomMenus" stylesheets="@estilos.css" text="Volver a jugar" visible="false" />

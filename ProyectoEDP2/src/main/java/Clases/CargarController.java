@@ -125,12 +125,11 @@ public class CargarController implements Initializable{
             this.limpiarCampos();
         }else{
             System.out.println("No puedes guardar si no has ingresado alguno o ambos archivos de texto");
-             Alert alerta = new Alert(AlertType.INFORMATION);
+            Alert alerta = new Alert(AlertType.INFORMATION);
             alerta.setTitle("Tema vacío");
             alerta.setHeaderText(null);
             alerta.setContentText("Por favor seleccione los archivos de preguntas y respuestas");
-
-        alerta.showAndWait();
+            alerta.showAndWait();
         }
         
     }
@@ -150,21 +149,19 @@ public class CargarController implements Initializable{
         if(nombre!=null && this.preguntas != null & this.respuestas != null){
             this.limpiarCampos();
             Archivos.eliminarTema(nombre);
-            
-             Alert alerta = new Alert(AlertType.INFORMATION);
+                      
+            Alert alerta = new Alert(AlertType.INFORMATION);
             alerta.setTitle("Archivo eliminado con éxito");
             alerta.setHeaderText(null);
             alerta.setContentText("Archivo eliminado cone exito");
-
-        alerta.showAndWait();
+            alerta.showAndWait();
             
         }  else{
-         Alert alerta = new Alert(AlertType.INFORMATION);
+            Alert alerta = new Alert(AlertType.INFORMATION);
             alerta.setTitle("Tema vacío");
             alerta.setHeaderText(null);
-            alerta.setContentText("Porfavor seleccione un tema para borrarlo");
-
-        alerta.showAndWait();
+            alerta.setContentText("Por favor seleccione un tema para borrarlo");
+            alerta.showAndWait();   
         }
         
     }
@@ -176,12 +173,17 @@ public class CargarController implements Initializable{
             this.limpiarCampos();
             Archivos.escribirSeleccionado(nombre);
             this.switchToInicio();
-             Alert alerta = new Alert(AlertType.INFORMATION);
-            alerta.setTitle("Cargado");
+            Alert alerta = new Alert(AlertType.INFORMATION);
+            alerta.setTitle("Tema cargado");
             alerta.setHeaderText(null);
-            alerta.setContentText(" Tema cargado ");
-
-        alerta.showAndWait();
+            alerta.setContentText(" Su tema cargado ");
+            alerta.showAndWait();
+        }else{
+            Alert alerta = new Alert(AlertType.INFORMATION);
+            alerta.setTitle("Tema vacío");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Por favor seleccione un tema");
+            alerta.showAndWait();
         }  
     }
     

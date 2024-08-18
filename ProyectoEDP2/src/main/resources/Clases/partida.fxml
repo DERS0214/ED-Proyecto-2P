@@ -36,7 +36,7 @@
       </AnchorPane>
       <Button fx:id="btnSi" layoutX="167.0" layoutY="378.0" prefHeight="45.0" prefWidth="103.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="SÍ" />
       <Button fx:id="btnNo" layoutX="396.0" layoutY="378.0" prefHeight="45.0" prefWidth="103.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="NO" />
-      <Button fx:id="btnSalir" layoutX="14.0" layoutY="686.0" prefHeight="30.0" prefWidth="117.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="REGRESAR" />
+      <Button fx:id="btnSalir" layoutX="14.0" layoutY="686.0" onAction="#switchToInicio" prefHeight="30.0" prefWidth="117.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="REGRESAR" />
       <ImageView fitHeight="244.0" fitWidth="539.0" layoutX="64.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Contenedor.png" />
@@ -44,7 +44,7 @@
       </ImageView>
       <StackPane layoutX="140.0" layoutY="224.0" prefHeight="100.0" prefWidth="388.0">
          <children>
-            <Button fx:id="btnPregunta" mnemonicParsing="false" prefHeight="72.0" prefWidth="420.0" styleClass="textError" stylesheets="@estilos.css" text="Pregunta" textFill="WHITE">
+            <Button fx:id="lblPregunta" mnemonicParsing="false" prefHeight="72.0" prefWidth="420.0" styleClass="textError" stylesheets="@estilos.css" text="Pregunta" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="15.0" />
                </font>

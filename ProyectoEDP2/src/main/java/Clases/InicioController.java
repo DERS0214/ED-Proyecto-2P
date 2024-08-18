@@ -37,8 +37,18 @@ public class InicioController implements Initializable {
         cargarSeleccionado();
     }
 
-    private void switchToPartida() throws IOException{
-        App.setRoot("partida");
+    private void switchToPartida(int numero) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("partida.fxml"));
+        Parent root = loader.load();
+
+        // Obtener el controlador y pasar el dato
+        PartidaController partidaController = loader.getController();
+        partidaController.setNumPreguntas(numero);
+
+        // Cambiar la escena
+        Stage stage = (Stage) btnIniciar.getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
@@ -70,15 +80,15 @@ public class InicioController implements Initializable {
         Tema t = Archivos.leerSeleccionado();
         String num = txtNumero.getText();
         
-        if (t!=null){
-             try {
+        if (!(txtNumero.getText().isEmpty()) && t!=null ){
+            try {
                 int value = Integer.parseInt(num);
                 if (value > 0 && value <= t.cantPreguntas()) {
                     mostrarPantallaTemporal();
                 } else {
                     System.out.println("El valor de preguntas debe ser menor o igual al numero de preguntas del tema");                }
             } catch (NumberFormatException e) {
-                e.printStackTrace();
+                System.out.println("ERROR AL CONVERTIR A ENTERO: "+e.getMessage());
             }
             
         }else{
@@ -92,10 +102,11 @@ public class InicioController implements Initializable {
         Stage tempStage = new Stage();
         Parent tempRoot = FXMLLoader.load(getClass().getResource("pantallaTemporal.fxml"));
         Scene tempScene = new Scene(tempRoot);
-
+        
+        switchToPartida(Integer.parseInt(txtNumero.getText())); // Cambiar a la pantalla de partida
         tempStage.setScene(tempScene);
         tempStage.show();
-
+        
         // Crear un hilo para esperar 5 segundos y luego cambiar la escena
         new Thread(() -> {
             try {
@@ -104,12 +115,7 @@ public class InicioController implements Initializable {
 
                 // Volver al hilo de JavaFX para cambiar la escena
                 javafx.application.Platform.runLater(() -> {
-                    try {
-                        tempStage.close(); // Cerrar la pantalla temporal
-                        switchToPartida(); // Cambiar a la pantalla de partida
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    tempStage.close(); // Cerrar la pantalla temporal
                 });
             } catch (InterruptedException e) {
                 e.printStackTrace();

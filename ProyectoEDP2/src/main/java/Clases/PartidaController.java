@@ -19,6 +19,7 @@ public class PartidaController implements Initializable {
     private Button btnPregunta;
     @FXML
     private Button btnNo1;
+    int numPreguntas;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -28,5 +29,9 @@ public class PartidaController implements Initializable {
     @FXML
     private void switchToInicio() throws IOException{
         App.setRoot("inicio");
+    }
+    
+    public void setNumPreguntas(int numPreguntas){
+        this.numPreguntas=numPreguntas;    
     }
 }

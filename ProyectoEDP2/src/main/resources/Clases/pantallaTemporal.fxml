@@ -37,9 +37,9 @@
             <Image url="@Piensa%20en%20un%20animal.gif" />
          </image>
       </ImageView>
-      <ImageView fitHeight="103.0" fitWidth="60.0" layoutX="476.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: screen;">
+      <ImageView fitHeight="292.0" fitWidth="381.0" layoutX="315.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: color-dodge;">
          <image>
-            <Image url="@Reloj%20Arena.gif" />
+            <Image url="@RELOJ.gif" />
          </image>
       </ImageView>
    </children>

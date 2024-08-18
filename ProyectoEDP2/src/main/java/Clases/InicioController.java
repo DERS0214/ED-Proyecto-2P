@@ -38,17 +38,7 @@ public class InicioController implements Initializable {
     }
 
     private void switchToPartida(int numero) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("partida.fxml"));
-        Parent root = loader.load();
-
-        // Obtener el controlador y pasar el dato
-        PartidaController partidaController = loader.getController();
-        partidaController.setNumPreguntas(numero);
-
-        // Cambiar la escena
-        Stage stage = (Stage) btnIniciar.getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        App.setRoot("partida");
     }
 
     @FXML
@@ -98,24 +88,19 @@ public class InicioController implements Initializable {
     }
     
     private void mostrarPantallaTemporal() throws IOException {
-        // Cargar el FXML de la pantalla temporal
-        Stage tempStage = new Stage();
-        Parent tempRoot = FXMLLoader.load(getClass().getResource("pantallaTemporal.fxml"));
-        Scene tempScene = new Scene(tempRoot);
-        
-        switchToPartida(Integer.parseInt(txtNumero.getText())); // Cambiar a la pantalla de partida
-        tempStage.setScene(tempScene);
-        tempStage.show();
-        
+        App.setRoot("pantallaTemporal");
         // Crear un hilo para esperar 5 segundos y luego cambiar la escena
         new Thread(() -> {
             try {
                 // Esperar 5 segundos
                 Thread.sleep(5000);
-
                 // Volver al hilo de JavaFX para cambiar la escena
                 javafx.application.Platform.runLater(() -> {
-                    tempStage.close(); // Cerrar la pantalla temporal
+                    try {
+                        App.setRoot("partida"); // Cerrar la pantalla temporal
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                 });
             } catch (InterruptedException e) {
                 e.printStackTrace();

@@ -66,6 +66,7 @@ public class Archivos {
             System.out.println("ARCHIVOS: Tema guardado con éxito: " + nombre);
         } catch (IOException e) {
             System.err.println("ARCHIVOS: Error al guardar el tema " + nombre + ": " + e.getMessage());
+            
         }
     }
         
@@ -81,6 +82,7 @@ public class Archivos {
             }
         } else {
             System.err.println("ARCHIVOS: No se encontró el tema: " + nombre);
+            
         }
     }
 

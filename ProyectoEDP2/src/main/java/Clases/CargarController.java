@@ -21,6 +21,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
@@ -45,7 +47,7 @@ public class CargarController implements Initializable{
     @FXML
     private Label lblRespuestas;
     
-        @FXML
+    @FXML
     private void cargarPreguntas(){
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Seleccionar Preguntas");
@@ -110,12 +112,25 @@ public class CargarController implements Initializable{
     @FXML
     private void guardarTema(){
         //Si el nombre del tema esta en blanco o sea el textfield esta vacio no guarda, ni si los arraylist de preguntas ni respuestas estan vacios
-        if(txtCategoria.getText() != null && !this.preguntas.isEmpty() && !this.respuestas.isEmpty()){
-        Tema t = new Tema(txtCategoria.getText(),preguntas,respuestas);        
-        Archivos.guardarTema(t.getNombre(), t);    
-        this.limpiarCampos();
+        if(txtCategoria.getText() != null && this.preguntas != null && this.respuestas != null){
+            Tema t = new Tema(txtCategoria.getText(),preguntas,respuestas);        
+            Archivos.guardarTema(t.getNombre(), t);    
+            //el metodo archivos.guardartema no es booleano, la validacion se hace aqui
+            Alert alerta = new Alert(AlertType.INFORMATION);
+            alerta.setTitle("Tema Guardado con Èxito");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Tu tema con archivo de preguntas y respuestas fue guardado con éxito");
+
+        alerta.showAndWait();
+            this.limpiarCampos();
         }else{
-            System.out.println("No puedes guardar si no has ingresado alguno o amnbos archivos de texto");
+            System.out.println("No puedes guardar si no has ingresado alguno o ambos archivos de texto");
+             Alert alerta = new Alert(AlertType.INFORMATION);
+            alerta.setTitle("Tema vacío");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Por favor seleccione los archivos de preguntas y respuestas");
+
+        alerta.showAndWait();
         }
         
     }
@@ -132,10 +147,25 @@ public class CargarController implements Initializable{
     @FXML
     private void eliminarTema(){
         String nombre = cbTema.getValue();
-        if(nombre!=null && !this.preguntas.isEmpty() & !this.respuestas.isEmpty()){
+        if(nombre!=null && this.preguntas != null & this.respuestas != null){
             this.limpiarCampos();
             Archivos.eliminarTema(nombre);
-        }  
+            
+             Alert alerta = new Alert(AlertType.INFORMATION);
+            alerta.setTitle("Archivo eliminado con éxito");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Archivo eliminado cone exito");
+
+        alerta.showAndWait();
+            
+        }  else{
+         Alert alerta = new Alert(AlertType.INFORMATION);
+            alerta.setTitle("Tema vacío");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Porfavor seleccione un tema para borrarlo");
+
+        alerta.showAndWait();
+        }
         
     }
     
@@ -146,6 +176,12 @@ public class CargarController implements Initializable{
             this.limpiarCampos();
             Archivos.escribirSeleccionado(nombre);
             this.switchToInicio();
+             Alert alerta = new Alert(AlertType.INFORMATION);
+            alerta.setTitle("Cargado");
+            alerta.setHeaderText(null);
+            alerta.setContentText(" Tema cargado ");
+
+        alerta.showAndWait();
         }  
     }
     

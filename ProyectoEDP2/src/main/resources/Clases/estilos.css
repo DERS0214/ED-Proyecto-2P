@@ -267,3 +267,14 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 0); /* Sombra general */
 }
 
+.buttomMenus{
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 0); /* Sombra general */
+    -fx-border-radius: 10px; /* Bordes redondeados */
+    -fx-background-radius: 10px; /* Fondo redondeado */
+    -fx-background-color: #1a1a3c; /* Fondo del ComboBox */
+    -fx-text-fill: #ffffff; /* Color del texto */
+    -fx-border-color: #ffffff; /* Color del borde */
+    -fx-font-size: 15px; 
+    -fx-font-family: "Century Gothic";  
+}
+

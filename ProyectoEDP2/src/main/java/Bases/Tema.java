@@ -18,7 +18,7 @@ public class Tema implements Serializable{
     }
     
     @FXML
-    public BinaryTree<String> cargarArbolPreguntas(ArrayList<String> preguntas)  {
+    private BinaryTree<String> cargarArbolPreguntas(ArrayList<String> preguntas)  {
         BinaryTree<String> arbol= new BinaryTree<>(new NodeBinaryTree<String>(preguntas.get(0)));
 
 
@@ -30,8 +30,6 @@ public class Tema implements Serializable{
             int size = q.size();
                 for(int i = 0; i<size;i++){
                     BinaryTree<String> t = q.poll();
-                    System.out.println("nivel:" +nivel);
-                    System.out.println("SIZE: "+preguntas.size());
                     if(nivel<preguntas.size()-1){
                         t.getRoot().setLeft(new BinaryTree<String>(new NodeBinaryTree<String>(preguntas.get(nivel+1))));
                         q.add(t.getRoot().getLeft());
@@ -47,7 +45,7 @@ public class Tema implements Serializable{
     }
     
     @FXML
-    public void cargarArbolRespuestas(ArrayList<String> respuestas,BinaryTree<String> arbol)  {
+    private void cargarArbolRespuestas(ArrayList<String> respuestas,BinaryTree<String> arbol)  {
                 
         for(String linea:respuestas){
             String[] espacios = linea.split(" ");
@@ -73,16 +71,16 @@ public class Tema implements Serializable{
         arbol.recorrerEnorden();
     }
     
-   private BinaryTree<String> crearArbol(){
+   public BinaryTree<String> crearArbol(){
         BinaryTree<String> arbol= this.cargarArbolPreguntas(this.preguntas);
         this.cargarArbolRespuestas(respuestas, arbol);
         return arbol;
    } 
    
-   public String toString(){
+    public String toString(){
        return "El tema: "+this.nombre+" tiene "+preguntas.size()+" preguntas y "+respuestas.size()+" respuestas";
        
-   }
+    }
 
     public String getNombre() {
         return nombre;

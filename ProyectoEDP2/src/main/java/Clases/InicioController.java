@@ -37,7 +37,7 @@ public class InicioController implements Initializable {
         cargarSeleccionado();
     }
 
-    private void switchToPartida() throws IOException{
+    private void switchToPartida(int numero) throws IOException {
         App.setRoot("partida");
     }
 
@@ -70,15 +70,16 @@ public class InicioController implements Initializable {
         Tema t = Archivos.leerSeleccionado();
         String num = txtNumero.getText();
         
-        if (t!=null){
-             try {
+        if (!(txtNumero.getText().isEmpty()) && t!=null ){
+            try {
                 int value = Integer.parseInt(num);
                 if (value > 0 && value <= t.cantPreguntas()) {
                     mostrarPantallaTemporal();
+                    Archivos.escribirCantPreg(num);
                 } else {
                     System.out.println("El valor de preguntas debe ser menor o igual al numero de preguntas del tema");                }
             } catch (NumberFormatException e) {
-                e.printStackTrace();
+                System.out.println("ERROR AL CONVERTIR A ENTERO: "+e.getMessage());
             }
             
         }else{
@@ -88,27 +89,15 @@ public class InicioController implements Initializable {
     }
     
     private void mostrarPantallaTemporal() throws IOException {
-        // Cargar el FXML de la pantalla temporal
-        Stage tempStage = new Stage();
-        Parent tempRoot = FXMLLoader.load(getClass().getResource("pantallaTemporal.fxml"));
-        Scene tempScene = new Scene(tempRoot);
-
-        tempStage.setScene(tempScene);
-        tempStage.show();
-
-        // Crear un hilo para esperar 5 segundos y luego cambiar la escena
+        App.setRoot("pantallaTemporal");
         new Thread(() -> {
             try {
-                // Esperar 5 segundos
-                Thread.sleep(5000);
-
-                // Volver al hilo de JavaFX para cambiar la escena
+                Thread.sleep(1000);
                 javafx.application.Platform.runLater(() -> {
                     try {
-                        tempStage.close(); // Cerrar la pantalla temporal
-                        switchToPartida(); // Cambiar a la pantalla de partida
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                        App.setRoot("partida"); 
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
                     }
                 });
             } catch (InterruptedException e) {

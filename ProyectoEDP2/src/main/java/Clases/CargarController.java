@@ -146,16 +146,7 @@ public class CargarController implements Initializable{
             alerta.setHeaderText(null);
             alerta.setContentText("Por favor coloque un título al tema");
             alerta.showAndWait();
-        }
-        else if(txtCategoria.getText().isEmpty() ){
-            System.out.println("El título del tema esta vacío");
-            Alert alerta = new Alert(AlertType.INFORMATION);
-            alerta.setTitle("Título del tema vacío");
-            alerta.setHeaderText(null);
-            alerta.setContentText("Por favor coloque un título al tema");
-            alerta.showAndWait();
-        }
-        
+        }        
     }
     
     private void cargarTemas(){

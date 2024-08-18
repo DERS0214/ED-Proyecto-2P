@@ -109,9 +109,14 @@ public class CargarController implements Initializable{
     
     @FXML
     private void guardarTema(){
+        //Si el nombre del tema esta en blanco o sea el textfield esta vacio no guarda, ni si los arraylist de preguntas ni respuestas estan vacios
+        if(txtCategoria.getText() != null && !this.preguntas.isEmpty() && !this.respuestas.isEmpty()){
         Tema t = new Tema(txtCategoria.getText(),preguntas,respuestas);        
         Archivos.guardarTema(t.getNombre(), t);    
         this.limpiarCampos();
+        }else{
+            System.out.println("No puedes guardar si no has ingresado alguno o amnbos archivos de texto");
+        }
         
     }
     
@@ -127,10 +132,11 @@ public class CargarController implements Initializable{
     @FXML
     private void eliminarTema(){
         String nombre = cbTema.getValue();
-        if(nombre!=null){
+        if(nombre!=null && !this.preguntas.isEmpty() & !this.respuestas.isEmpty()){
             this.limpiarCampos();
             Archivos.eliminarTema(nombre);
         }  
+        
     }
     
     @FXML

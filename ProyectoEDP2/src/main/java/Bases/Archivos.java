@@ -127,5 +127,51 @@ public class Archivos {
             e.printStackTrace(); // Manejo de excepciones
         }
     }
+    
+        public static Integer leerPreguntas() {
+        String linea = "";
+        File archivo = new File("cantidadPreguntas.txt");
+        try {
+            // Si el archivo no existe, lo crea
+            if (!archivo.exists()) {
+                archivo.createNewFile();
+            }
+
+            // Lee la primera línea del archivo
+            try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+                linea = br.readLine();
+                if (linea == null) {
+                    linea = ""; // El archivo está vacío
+                }
+            }
+            
+        } catch (IOException e) {
+            e.printStackTrace(); // Manejo de excepciones
+        }
+        try{
+            return Integer.parseInt(linea);
+        }catch(Exception e){
+            System.out.println("ERROR AL LEER NUMERO DE PREGUNTAS: "+e.getMessage());
+            return 0;
+        }
+    }
+    
+    public static void escribirCantPreg(String num) {
+        File archivo = new File("cantidadPreguntas.txt");
+        try {
+            // Si el archivo no existe, lo crea
+            if (!archivo.exists()) {
+                archivo.createNewFile();
+            }
+
+            // Escribe el nombre del tema en el archivo, sobrescribiendo el contenido existente
+            try (FileWriter fw = new FileWriter(archivo)) {
+                fw.write(num);  // Sobrescribe el archivo con el nuevo nombre del tema
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace(); // Manejo de excepciones
+        }
+    } 
 
 }

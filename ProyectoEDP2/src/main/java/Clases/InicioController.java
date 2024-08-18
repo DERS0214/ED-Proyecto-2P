@@ -75,6 +75,7 @@ public class InicioController implements Initializable {
                 int value = Integer.parseInt(num);
                 if (value > 0 && value <= t.cantPreguntas()) {
                     mostrarPantallaTemporal();
+                    Archivos.escribirCantPreg(num);
                 } else {
                     System.out.println("El valor de preguntas debe ser menor o igual al numero de preguntas del tema");                }
             } catch (NumberFormatException e) {
@@ -93,7 +94,7 @@ public class InicioController implements Initializable {
         new Thread(() -> {
             try {
                 // Esperar 5 segundos
-                Thread.sleep(5000);
+                Thread.sleep(1000);
                 // Volver al hilo de JavaFX para cambiar la escena
                 javafx.application.Platform.runLater(() -> {
                     try {

@@ -13,7 +13,7 @@
          </image>
       </ImageView>
       <Button fx:id="btnSalir" layoutX="14.0" layoutY="686.0" prefHeight="30.0" prefWidth="117.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="REGRESAR" />
-      <AnchorPane layoutX="296.0" layoutY="138.0" prefHeight="72.0" prefWidth="312.0">
+      <AnchorPane layoutX="295.0" layoutY="137.0" prefHeight="72.0" prefWidth="312.0">
          <children>
             <ImageView fitHeight="186.0" fitWidth="406.0" layoutX="14.3125" layoutY="3.740772247314453" pickOnBounds="true" preserveRatio="true" rotate="5.7" style="-fx-blend-mode: overlay;">
                <image>
@@ -32,5 +32,15 @@
             </ImageView>
          </children>
       </AnchorPane>
+      <ImageView fitHeight="222.0" fitWidth="467.0" layoutX="295.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: screen;">
+         <image>
+            <Image url="@Piensa%20en%20un%20animal.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="103.0" fitWidth="60.0" layoutX="476.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: screen;">
+         <image>
+            <Image url="@Reloj%20Arena.gif" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

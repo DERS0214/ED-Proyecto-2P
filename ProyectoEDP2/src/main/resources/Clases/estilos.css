@@ -288,3 +288,11 @@
     -fx-font-weight: bold; /* Hacer el texto más grueso */    
 }
 
+.lblPregunta{
+    -fx-font-size: 21px;
+    -fx-font-family: "Century Gothic";
+    -fx-font-weight: bold;  /* Aplica negrita */
+    -fx-font-style: italic;  /* Aplica cursiva */
+}
+
+

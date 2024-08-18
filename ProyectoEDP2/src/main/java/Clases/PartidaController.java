@@ -37,6 +37,8 @@ public class PartidaController implements Initializable {
     @FXML
     private ImageView ivCharacter;
     ArrayList<String> rutas = new ArrayList<>();
+    @FXML
+    private Label lblTotal;
     
 
     @Override
@@ -52,6 +54,7 @@ public class PartidaController implements Initializable {
         rutas.add("Character3.png");
         rutas.add("Character4.png");
         imgAleatoria();
+        this.setLblPreguntas(Integer.toString(numActuales), Integer.toString(numPreguntas));
         
     }    
     
@@ -70,7 +73,7 @@ public class PartidaController implements Initializable {
         App.setRoot("pantallaTemporal");
         new Thread(() -> {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(5000);
                 javafx.application.Platform.runLater(() -> {
                     try {
                         App.setRoot("partida"); // Cerrar la pantalla temporal
@@ -109,6 +112,7 @@ public class PartidaController implements Initializable {
     @FXML
     public void presionoSi(){
         this.numActuales++;
+        
         imgAleatoria();
         System.out.println("PREGUNTA: "+numActuales);
         if(arbol.getRoot().getLeft()==null){
@@ -133,6 +137,7 @@ public class PartidaController implements Initializable {
         
         this.setArbol(arbol.getRoot().getLeft());
         this.cambiarPregunta();
+        this.setLblPreguntas(Integer.toString(numActuales), Integer.toString(numPreguntas));
     }
     
     @FXML
@@ -161,6 +166,7 @@ public class PartidaController implements Initializable {
         
         this.setArbol(arbol.getRoot().getRight());
         this.cambiarPregunta();
+        this.setLblPreguntas(Integer.toString(numActuales), Integer.toString(numPreguntas));
     }
     
     public void mostrarPosiblesRespuestas(){
@@ -215,5 +221,9 @@ public class PartidaController implements Initializable {
     public void imgAleatoria(){
         int numeroAleatorio = (int) (Math.random() * 4);
         this.cambiarImage(rutas.get(numeroAleatorio));
+    }
+    
+    public void setLblPreguntas(String a1, String a2){
+        lblTotal.setText("Pregunta "+a1+" de "+ a2);
     }
 }

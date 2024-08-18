@@ -59,5 +59,10 @@
       <Button fx:id="btnVolverJugar" layoutX="257.0" layoutY="451.0" onAction="#volverAJugar" prefHeight="45.0" prefWidth="154.0" styleClass="buttomMenus" stylesheets="@estilos.css" text="Volver a jugar" visible="false" />
       <Button fx:id="btnEscogerTema" layoutX="244.0" layoutY="508.0" onAction="#switchToCargar" prefHeight="45.0" prefWidth="180.0" styleClass="buttomMenus" stylesheets="@estilos.css" text="Escoger otro tema" visible="false" />
       <Button fx:id="btnVolverInicio" layoutX="257.0" layoutY="565.0" onAction="#switchToInicio" prefHeight="45.0" prefWidth="154.0" styleClass="buttomMenus" stylesheets="@estilos.css" text="Volver al inicio" visible="false" />
+      <Label fx:id="lblTotal" alignment="CENTER" layoutX="200.0" layoutY="111.0" prefHeight="30.0" prefWidth="266.0" style="-fx-alignment: CENTER;" styleClass="lblPregunta" stylesheets="@estilos.css" text="Pregunta 1 de 3" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="21.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

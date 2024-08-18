@@ -62,6 +62,14 @@ public class CargarController implements Initializable{
                 
                 for(String linea : lineas){
                     System.out.println(linea);
+                    if (!linea.startsWith("¿") || !linea.endsWith("?")) {
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("Formato Incorrecto");
+                        alert.setHeaderText("Una o más líneas no cumplen con el formato de pregunta.");
+                        alert.setContentText("Cada línea debe comenzar con '¿' y terminar con '?'. Línea incorrecta: \n" + linea);
+                        alert.showAndWait();
+                        return; // Salir del método si se encuentra una línea incorrecta
+                    }
                 }
                 
                 this.preguntas = lineasArrayList;
@@ -87,6 +95,14 @@ public class CargarController implements Initializable{
                 
                 for(String linea : lineas){
                     System.out.println(linea);
+                    if (linea.startsWith("¿") || linea.endsWith("?")) {
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("Formato Incorrecto");
+                        alert.setHeaderText("Una o más líneas no cumplen con el formato de respuesta.");
+                        alert.setContentText("Cada línea NO debe comenzar con '¿' y terminar con '?'. Línea incorrecta: \n" + linea);
+                        alert.showAndWait();
+                        return; // Salir del método si se encuentra una línea incorrecta
+                    }
                 }
                 
                 this.respuestas = lineasArrayList;
@@ -123,12 +139,20 @@ public class CargarController implements Initializable{
 
         alerta.showAndWait();
             this.limpiarCampos();
-        }else{
-            System.out.println("No puedes guardar si no has ingresado alguno o ambos archivos de texto");
+        }else if(txtCategoria.getText().isEmpty() ){
+            System.out.println("El título del tema esta vacío");
             Alert alerta = new Alert(AlertType.INFORMATION);
-            alerta.setTitle("Tema vacío");
+            alerta.setTitle("Título del tema vacío");
             alerta.setHeaderText(null);
-            alerta.setContentText("Por favor seleccione los archivos de preguntas y respuestas");
+            alerta.setContentText("Por favor coloque un título al tema");
+            alerta.showAndWait();
+        }
+        else if(txtCategoria.getText().isEmpty() ){
+            System.out.println("El título del tema esta vacío");
+            Alert alerta = new Alert(AlertType.INFORMATION);
+            alerta.setTitle("Título del tema vacío");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Por favor coloque un título al tema");
             alerta.showAndWait();
         }
         

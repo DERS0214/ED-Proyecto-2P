@@ -790,4 +790,31 @@ public class BinaryTree<E> {
         }
 
     }
+    
+    public ArrayList<E> obtenerHojas(){
+        ArrayList<E> lista = new ArrayList<>();
+        
+        Stack<BinaryTree<E>> s = new Stack();
+        
+        if(!this.isEmpty()){
+            s.push(this);
+        }
+        
+        while (!s.isEmpty()){
+            BinaryTree<E> tree=s.pop();
+            
+            if(tree.isLeaf()){
+                lista.add(tree.getRoot().getContent());
+            }
+            
+            if(tree.getRoot().getLeft() != null){
+                s.push(tree.getRoot().getLeft());
+            }
+            
+            if(tree.getRoot().getRight() != null){
+                s.push(tree.getRoot().getRight());
+            }
+        }
+        return lista;
+    }
 }

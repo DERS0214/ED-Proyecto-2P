@@ -92,7 +92,7 @@ public class InicioController implements Initializable {
         App.setRoot("pantallaTemporal");
         new Thread(() -> {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(3000);
                 javafx.application.Platform.runLater(() -> {
                     try {
                         App.setRoot("partida"); 

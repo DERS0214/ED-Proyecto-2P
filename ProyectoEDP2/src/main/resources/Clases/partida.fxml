@@ -36,7 +36,7 @@
       </AnchorPane>
       <Button fx:id="btnSi" layoutX="167.0" layoutY="378.0" onAction="#presionoSi" prefHeight="45.0" prefWidth="103.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="SÍ" />
       <Button fx:id="btnNo" layoutX="396.0" layoutY="378.0" onAction="#presionoNo" prefHeight="45.0" prefWidth="103.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="NO" />
-      <Button layoutX="14.0" layoutY="686.0" onAction="#switchToInicio" prefHeight="30.0" prefWidth="117.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="REGRESAR" />
+      <Button fx:id="btnRegresar" layoutX="14.0" layoutY="686.0" onAction="#switchToInicio" prefHeight="30.0" prefWidth="117.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="REGRESAR" />
       <ImageView fitHeight="244.0" fitWidth="539.0" layoutX="64.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Contenedor.png" />
@@ -51,14 +51,13 @@
             </Label>
          </children>
       </StackPane>
-      <Button fx:id="btnNo1" layoutX="241.0" layoutY="378.0" prefHeight="45.0" prefWidth="186.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="JUGAR DE NUEVO" visible="false" />
       <ImageView fitHeight="626.0" fitWidth="433.0" layoutX="563.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Character.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnVolverJugar" layoutX="257.0" layoutY="447.0" onAction="#volverAJugar" prefHeight="45.0" prefWidth="154.0" styleClass="buttomMenus" stylesheets="@estilos.css" text="Volver a jugar" />
-      <Button fx:id="btnEscogerTema" layoutX="243.0" layoutY="504.0" onAction="#switchToCargar" prefHeight="45.0" prefWidth="180.0" styleClass="buttomMenus" stylesheets="@estilos.css" text="Escoger otro tema" />
-      <Button fx:id="btnVolverInicio" layoutX="257.0" layoutY="565.0" onAction="#switchToInicio" prefHeight="45.0" prefWidth="154.0" styleClass="buttomMenus" stylesheets="@estilos.css" text="Volver al inicio" />
+      <Button fx:id="btnVolverJugar" layoutX="257.0" layoutY="451.0" onAction="#volverAJugar" prefHeight="45.0" prefWidth="154.0" styleClass="buttomMenus" stylesheets="@estilos.css" text="Volver a jugar" visible="false" />
+      <Button fx:id="btnEscogerTema" layoutX="244.0" layoutY="508.0" onAction="#switchToCargar" prefHeight="45.0" prefWidth="180.0" styleClass="buttomMenus" stylesheets="@estilos.css" text="Escoger otro tema" visible="false" />
+      <Button fx:id="btnVolverInicio" layoutX="257.0" layoutY="565.0" onAction="#switchToInicio" prefHeight="45.0" prefWidth="154.0" styleClass="buttomMenus" stylesheets="@estilos.css" text="Volver al inicio" visible="false" />
    </children>
 </AnchorPane>

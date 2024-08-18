@@ -278,3 +278,13 @@
     -fx-font-family: "Century Gothic";  
 }
 
+.buttomMenus:hover{
+    -fx-background-color:  #05051f;
+    -fx-opacity: 0.9;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "Century Gothic";    
+    -fx-font-size: 16px;
+    -fx-cursor: hand;
+    -fx-font-weight: bold; /* Hacer el texto más grueso */    
+}
+

@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import Bases.*;
+import java.util.ArrayList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.text.TextAlignment;
@@ -23,7 +24,13 @@ public class PartidaController implements Initializable {
     @FXML
     private Label lblPregunta;
     @FXML
-    private Button btnNo1;
+    private Button btnVolverJugar;
+    @FXML
+    private Button btnEscogerTema;
+    @FXML
+    private Button btnVolverInicio;
+    @FXML
+    private Button btnRegresar;
     
 
     @Override
@@ -106,6 +113,7 @@ public class PartidaController implements Initializable {
         }
         
         if(numActuales>numPreguntas){
+            this.setArbol(arbol.getRoot().getLeft());
             System.out.println("PREGUNTAS AGOTADAS");
             mostrarPosiblesRespuestas();
             return;
@@ -132,6 +140,7 @@ public class PartidaController implements Initializable {
         }
         
         if(numActuales>numPreguntas){
+            this.setArbol(arbol.getRoot().getRight());
             System.out.println("PREGUNTAS AGOTADAS");
             mostrarPosiblesRespuestas();
             return;
@@ -142,14 +151,41 @@ public class PartidaController implements Initializable {
     }
     
     public void mostrarPosiblesRespuestas(){
-        
+        ArrayList<String> posibles=arbol.obtenerHojas();
+        if(posibles.size()==0){
+            this.mostrarNoRespuestas();
+        }else{
+            String linea = "";
+            for (int i = 0; i<posibles.size();i++){
+                linea = linea+posibles.get(i);
+                if(i!=(posibles.size()-1)){
+                    linea=linea+", ";
+                }else{
+                    linea=linea+".";
+                }
+            }
+            this.cambiarLabel("Se agotaron las preguntas :(, pero los posibles animales son: "+linea);
+            this.juegoTerminado();
+        }
+                
     }
     
     public void mostrarNoRespuestas(){
         this.cambiarLabel("No pudimos encontrar el animal en el que piensas :(");
+        juegoTerminado();
     }
     
     public void mostrarRespuesta(){
         this.cambiarLabel("El animal en el que estas pensando es: "+arbol.getRoot().getContent());
+        juegoTerminado();
+    }
+    
+    public void juegoTerminado(){
+        this.btnVolverJugar.setVisible(true);
+        this.btnEscogerTema.setVisible(true);
+        this.btnVolverInicio.setVisible(true);
+        this.btnSi.setVisible(false);
+        this.btnNo.setVisible(false);
+        this.btnRegresar.setVisible(false);
     }
 }

@@ -133,7 +133,7 @@ public class CargarController implements Initializable{
             Archivos.guardarTema(t.getNombre(), t);    
             //el metodo archivos.guardartema no es booleano, la validacion se hace aqui
             Alert alerta = new Alert(AlertType.INFORMATION);
-            alerta.setTitle("Tema Guardado con Èxito");
+            alerta.setTitle("Tema Guardado con Éxito");
             alerta.setHeaderText(null);
             alerta.setContentText("Tu tema con archivo de preguntas y respuestas fue guardado con éxito");
 
@@ -168,7 +168,7 @@ public class CargarController implements Initializable{
             Alert alerta = new Alert(AlertType.INFORMATION);
             alerta.setTitle("Archivo eliminado con éxito");
             alerta.setHeaderText(null);
-            alerta.setContentText("Archivo eliminado cone exito");
+            alerta.setContentText("Archivo eliminado con éxito");
             alerta.showAndWait();
             
         }  else{

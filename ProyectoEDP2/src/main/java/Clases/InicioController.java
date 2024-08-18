@@ -79,11 +79,11 @@ public class InicioController implements Initializable {
                     mostrarPantallaTemporal();
                     Archivos.escribirCantPreg(num);
                 } else {
-                    System.out.println("El valor de preguntas debe ser menor o igual al numero de preguntas del tema");      
+                    System.out.println("El valor de preguntas debe ser menor o igual al número de preguntas del tema");      
                     Alert alerta = new Alert(AlertType.INFORMATION);
                     alerta.setTitle("Error cantidad de preguntas");
                     alerta.setHeaderText(null);
-                    alerta.setContentText("Porfavor digite un numero entre 1 y "+ t.cantPreguntas());
+                    alerta.setContentText("Por favor, digite un número entre 1 y "+ t.cantPreguntas());
                     alerta.showAndWait();
                 }
             } catch (NumberFormatException e) {
@@ -96,7 +96,7 @@ public class InicioController implements Initializable {
                 Alert alerta = new Alert(AlertType.INFORMATION);
                 alerta.setTitle("Error tema vacío");
                 alerta.setHeaderText(null);
-                alerta.setContentText("Porfavor seleccione primero un tema");
+                alerta.setContentText("Por favor, seleccione primero un tema");
                 alerta.showAndWait();                
             }
             
@@ -104,7 +104,7 @@ public class InicioController implements Initializable {
                 Alert alerta = new Alert(AlertType.INFORMATION);
                 alerta.setTitle("Error cantidad de preguntas vacío");
                 alerta.setHeaderText(null);
-                alerta.setContentText("Porfavor digite un numero entre 1 y "+ t.cantPreguntas());
+                alerta.setContentText("Por favor digite, un numero entre 1 y "+ t.cantPreguntas());
                 alerta.showAndWait();
             }
         }

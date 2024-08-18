@@ -47,7 +47,7 @@ public class Archivos {
                     System.err.println("ARCHIVOS: Error al leer el archivo de tema " + archivo.getName() + ": " + e.getMessage());
                 }
             }
-            System.out.println("ARCHIVOS: Todos los temas leidos con exito");
+            System.out.println("ARCHIVOS: Todos los temas leídos con exito");
         } else {
             System.err.println("ARCHIVOS: No se pudo encontrar el directorio de temas.");
         }

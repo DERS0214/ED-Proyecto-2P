@@ -105,7 +105,7 @@ public class InicioController implements Initializable {
                 Alert alerta = new Alert(AlertType.INFORMATION);
                 alerta.setTitle("Error cantidad de preguntas vacío");
                 alerta.setHeaderText(null);
-                alerta.setContentText("Por favor digite, un numero entre 1 y "+ t.cantPreguntas());
+                alerta.setContentText("Por favor ingresar en número de preguntas");
                 alerta.showAndWait();
             }
         }

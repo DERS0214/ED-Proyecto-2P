@@ -81,7 +81,7 @@ public class InicioController implements Initializable {
                 } else {
                     System.out.println("El valor de preguntas debe ser menor o igual al número de preguntas del tema");      
                     Alert alerta = new Alert(AlertType.INFORMATION);
-                    alerta.setTitle("Error cantidad de preguntas");
+                    alerta.setTitle("Cantidad de Preguntas Inválida");
                     alerta.setHeaderText(null);
                     alerta.setContentText("Por favor, digite un número entre 1 y "+ t.cantPreguntas());
                     alerta.showAndWait();
@@ -92,15 +92,16 @@ public class InicioController implements Initializable {
             
         }else{
             //logica para indicar que no hay un tema cargado
-            if(t==null  || lblNombre.getText().isEmpty() ){
+            if(t == null){
                 Alert alerta = new Alert(AlertType.INFORMATION);
                 alerta.setTitle("Error tema vacío");
                 alerta.setHeaderText(null);
-                alerta.setContentText("Por favor, seleccione primero un tema");
-                alerta.showAndWait();                
+                alerta.setContentText("Por favor, seleccione un tema en la sección \"Cargar Tema\"");
+                alerta.showAndWait();      
+                return;
             }
             
-            if(!lblNombre.getText().isEmpty() && txtNumero.getText().isEmpty()){
+            if(txtNumero.getText().isEmpty()){
                 Alert alerta = new Alert(AlertType.INFORMATION);
                 alerta.setTitle("Error cantidad de preguntas vacío");
                 alerta.setHeaderText(null);

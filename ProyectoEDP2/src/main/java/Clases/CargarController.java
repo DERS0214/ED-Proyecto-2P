@@ -146,6 +146,14 @@ public class CargarController implements Initializable{
             alerta.setHeaderText(null);
             alerta.setContentText("Por favor coloque un título al tema");
             alerta.showAndWait();
+            return;
+        } else{
+            System.out.println("Las preguntas o respuestas estan vacías");
+            Alert alerta = new Alert(AlertType.INFORMATION);
+            alerta.setTitle("Preguntas o Respuestas vácias");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Por favor verifique los archivos de preguntas y respuestas");
+            alerta.showAndWait();
         }        
     }
     

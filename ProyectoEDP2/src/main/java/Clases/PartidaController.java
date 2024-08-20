@@ -176,14 +176,17 @@ public class PartidaController implements Initializable {
         }else{
             String linea = "";
             for (int i = 0; i<posibles.size();i++){
-                linea = linea+posibles.get(i);
-                if(i!=(posibles.size()-1)){
-                    linea=linea+", ";
-                }else{
-                    linea=linea+".";
+                if (!posibles.get(i).contains("?")) {
+                        System.out.println(posibles.get(i));
+                        linea = linea+posibles.get(i);
+                    if(i!=(posibles.size()-1)){
+                        linea=linea+", ";
+                    }else{
+                        linea=linea+".";
+                    }
                 }
             }
-            this.cambiarLabel("Se agotaron las preguntas :(, pero los posibles animales son: "+linea);
+            this.cambiarLabel("Se agotaron las preguntas :(, pero las posibles respuestas son: "+linea);
             this.juegoTerminado();
             this.cambiarImage("Character2.png");
         }

@@ -48,6 +48,7 @@ public class Tema implements Serializable{
     private void cargarArbolRespuestas(ArrayList<String> respuestas,BinaryTree<String> arbol)  {
                 
         for(String linea:respuestas){
+            
             String[] espacios = linea.split(" ");
             String animal = espacios[0];
             int cantidad=espacios.length;
@@ -55,16 +56,29 @@ public class Tema implements Serializable{
             
             for(int i=1;i<cantidad-1;i++){
                 if(espacios[i].equalsIgnoreCase("SI")){
+                    
                     p=p.getRoot().getLeft();
+                    
                 }else{
                     p=p.getRoot().getRight();
                 }
             }
             
             if(espacios[cantidad-1].equalsIgnoreCase("SI")){
+                if(p.getRoot().getLeft()!=null){
+                    String ant = p.getRoot().getLeft().getRoot().getContent();
+                    p.getRoot().setLeft(new BinaryTree<String>(new NodeBinaryTree<String>(ant+", "+animal)));
+                }else{
                     p.getRoot().setLeft(new BinaryTree<String>(new NodeBinaryTree<String>(animal)));
+                }
             }else{
+                if(p.getRoot().getRight()!=null){
+                    String ant = p.getRoot().getRight().getRoot().getContent();
+                    p.getRoot().setRight(new BinaryTree<String>(new NodeBinaryTree<String>(ant+", "+animal)));
+                }else{
                     p.getRoot().setRight(new BinaryTree<String>(new NodeBinaryTree<String>(animal)));
+                }
+                   
             }
             
         }

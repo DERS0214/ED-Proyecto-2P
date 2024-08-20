@@ -1,0 +1,15 @@
+Perro si si si si no
+Gato si si si si no
+León si si no si no
+Tigre si si no si no
+Elefante si no no si no
+Vaca si no si si no
+Delfín si no no no si
+Tiburón no si no no si
+Oso si si no si no
+Caballo si no si si no
+Rinoceronte si no no si no
+Pingüino no no no no si
+Águila no si no no no
+Tortuga no no no no si
+Canguro si no no si no

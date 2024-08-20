@@ -1,0 +1,5 @@
+¿Es un mamífero?
+¿Es carnívoro?
+¿Es doméstico?
+¿Tiene pelaje?
+¿Vive en el agua?

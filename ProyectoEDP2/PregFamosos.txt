@@ -1,0 +1,5 @@
+¿Es una persona famosa?
+¿Es actor o actriz?
+¿Es de Hollywood?
+¿Ha ganado un Oscar?
+¿Ha protagonizado una película de acción?

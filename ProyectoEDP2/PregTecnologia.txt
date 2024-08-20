@@ -1,0 +1,5 @@
+¿Es un dispositivo electrónico?
+¿Tiene pantalla?
+¿Es portátil?
+¿Se usa para comunicación?
+¿Es un smartphone?

@@ -200,7 +200,7 @@ public class PartidaController implements Initializable {
     }
     
     public void mostrarRespuesta(){
-        this.cambiarLabel("El animal en el que estas pensando es: "+arbol.getRoot().getContent());
+        this.cambiarLabel("El animal en el que estás pensando es: "+arbol.getRoot().getContent());
         juegoTerminado();
         this.cambiarImage("Character4.png");
 

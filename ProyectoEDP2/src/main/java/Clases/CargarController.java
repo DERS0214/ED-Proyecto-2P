@@ -133,7 +133,7 @@ public class CargarController implements Initializable{
             Archivos.guardarTema(t.getNombre(), t);    
             //el metodo archivos.guardartema no es booleano, la validacion se hace aqui
             Alert alerta = new Alert(AlertType.INFORMATION);
-            alerta.setTitle("Tema Guardado con Èxito");
+            alerta.setTitle("Tema Guardado con Éxito");
             alerta.setHeaderText(null);
             alerta.setContentText("Tu tema con archivo de preguntas y respuestas fue guardado con éxito");
 
@@ -145,6 +145,14 @@ public class CargarController implements Initializable{
             alerta.setTitle("Título del tema vacío");
             alerta.setHeaderText(null);
             alerta.setContentText("Por favor coloque un título al tema");
+            alerta.showAndWait();
+            return;
+        } else{
+            System.out.println("Las preguntas o respuestas estan vacías");
+            Alert alerta = new Alert(AlertType.INFORMATION);
+            alerta.setTitle("Preguntas o Respuestas vácias");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Por favor verifique los archivos de preguntas y respuestas");
             alerta.showAndWait();
         }        
     }
@@ -168,7 +176,7 @@ public class CargarController implements Initializable{
             Alert alerta = new Alert(AlertType.INFORMATION);
             alerta.setTitle("Archivo eliminado con éxito");
             alerta.setHeaderText(null);
-            alerta.setContentText("Archivo eliminado cone exito");
+            alerta.setContentText("Archivo eliminado con éxito");
             alerta.showAndWait();
             
         }  else{

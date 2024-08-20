@@ -30,7 +30,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="222.0" fitWidth="467.0" layoutX="295.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: screen;">
+      <ImageView fitHeight="222.0" fitWidth="467.0" layoutX="295.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: screen;">
          <image>
             <Image url="@Piensa%20en%20un%20animal.gif" />
          </image>

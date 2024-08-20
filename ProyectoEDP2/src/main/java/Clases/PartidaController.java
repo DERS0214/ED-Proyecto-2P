@@ -112,7 +112,6 @@ public class PartidaController implements Initializable {
     @FXML
     public void presionoSi(){
         this.numActuales++;
-        
         imgAleatoria();
         System.out.println("PREGUNTA: "+numActuales);
         if(arbol.getRoot().getLeft()==null){
@@ -121,7 +120,7 @@ public class PartidaController implements Initializable {
             return;
         }
         
-        if(arbol.getRoot().getLeft().isLeaf()){
+        if(!arbol.getRoot().getLeft().getRoot().getContent().contains("?")){
             this.setArbol(arbol.getRoot().getLeft());
             System.out.println("ARBOL HOJA");
             mostrarRespuesta();
@@ -144,15 +143,16 @@ public class PartidaController implements Initializable {
     public void presionoNo(){
         this.numActuales++;
         this.imgAleatoria();
+        
         if(arbol.getRoot().getRight()==null){
             System.out.println("ARBOL NULO");
             mostrarNoRespuestas();
             return;
         }
         
-        if(arbol.getRoot().getRight().isLeaf()){
+        if(!arbol.getRoot().getRight().getRoot().getContent().contains("?")){
             this.setArbol(arbol.getRoot().getRight());
-            System.out.println("ARBOL HOJA");
+            System.out.println("ARBOL RESPUESTA");
             mostrarRespuesta();
             return;
         }
@@ -163,10 +163,10 @@ public class PartidaController implements Initializable {
             mostrarPosiblesRespuestas();
             return;
         }
-        
+        this.setLblPreguntas(Integer.toString(numActuales), Integer.toString(numPreguntas));
         this.setArbol(arbol.getRoot().getRight());
         this.cambiarPregunta();
-        this.setLblPreguntas(Integer.toString(numActuales), Integer.toString(numPreguntas));
+        
     }
     
     public void mostrarPosiblesRespuestas(){
@@ -194,15 +194,20 @@ public class PartidaController implements Initializable {
     }
     
     public void mostrarNoRespuestas(){
-        this.cambiarLabel("No pudimos encontrar el animal en el que piensas :(");
+        this.cambiarLabel("No pudimos encontrar lo que estas pensando :(");
         juegoTerminado();
         this.cambiarImage("Character5.png");
     }
     
     public void mostrarRespuesta(){
-        this.cambiarLabel("El animal en el que estás pensando es: "+arbol.getRoot().getContent());
-        juegoTerminado();
-        this.cambiarImage("Character4.png");
+        if(!arbol.getRoot().getContent().contains("?")){
+            this.cambiarLabel("Estas pensando en: "+arbol.getRoot().getContent());
+            juegoTerminado();
+            this.cambiarImage("Character4.png");
+        }else{
+            mostrarNoRespuestas();
+        }
+        
 
     }
     
